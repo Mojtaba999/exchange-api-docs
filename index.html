@@ -2586,13 +2586,16 @@
 <span class="p">}</span>
 </code></pre></div><h3 id='request-k-line-history-data'><p id="24" style="margin-top:110%">Request-K Line History Data</p></h3>
 <ul>
-<li>Increase request parameters endIdx，pageSize（Up to 300, default 300 data）,If endIdx is empty, the last 300 historical data are returned</li>
-</ul>
-<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="p">{</span><span class="s2">"event"</span><span class="ss">:"req"</span><span class="p">,</span><span class="s2">"params"</span><span class="p">:{</span><span class="s2">"channel"</span><span class="ss">:"market_$base$quote_kline_[1min/5min/15min/30min/60min/1day/1week/1month]"</span><span class="p">,</span><span class="s2">"cb_id"</span><span class="ss">:"custom"</span><span class="p">,</span><span class="s2">"since"</span><span class="ss">:"1506602880"</span><span class="p">}}</span><span class="o">/</span><span class="sr">/since The default is to return the latest 300, a return value greater than since for up to 1 hours of data, since has strong check, not earlier than the current 1 hours to 59 since
-</span></code></pre></div>
-<ul>
+<li><p>Increase request parameters endIdx，pageSize（Up to 300, default 300 data）,If endIdx is empty, the last 300 historical data are returned</p></li>
 <li><p>request:</p></li>
-<li><p>Return a historical data:</p></li>
+</ul>
+
+<p><code>
+{&quot;event&quot;:&quot;req&quot;,&quot;params&quot;:{&quot;channel&quot;:&quot;market_$base$quote_kline_[1min/5min/15min/30min/60min/1day/1week/1month]&quot;,&quot;cb_id&quot;:&quot;custom&quot;,&quot;since&quot;:&quot;1506602880&quot;}}//since The default is to return the latest 300, a return value greater than since for up to 1 hours of data, since has strong check, not earlier than the current 1 hours to 59 since
+</code></p>
+
+<ul>
+<li>Return a historical data:</li>
 </ul>
 <div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="p">{</span>
     <span class="s2">"event_rep"</span><span class="ss">:"rep"</span><span class="p">,</span><span class="s2">"channel"</span><span class="ss">:"market_$base$quote_kline_[1min/5min/15min/30min/60min/1day/1week/1month]"</span><span class="p">,</span><span class="s2">"cb_id"</span><span class="ss">:"Please Return by the Way You Came"</span><span class="p">,</span>
@@ -2619,7 +2622,7 @@
         }
     ]
 }
-</span></code></pre></div><h3 id='request-transaction-history-data'><p id="25" style="margin-top:65%">Request-transaction history data </p></h3>
+</span></code></pre></div><h3 id='request-transaction-history-data'><p id="25" style="margin-top:88%">Request-transaction history data </p></h3>
 <ul>
 <li>request:</li>
 </ul>
@@ -2654,7 +2657,7 @@
         <span class="p">}</span>
     <span class="p">]</span>
 <span class="p">}</span>
-</code></pre></div><h3 id='request-24-market-data-on-home-page'><p id="26" style="margin-top:60%">Request - 24 Market Data on Home Page-</p></h3>
+</code></pre></div><h3 id='request-24-market-data-on-home-page'><p id="26" style="margin-top:80%">Request - 24 Market Data on Home Page-</p></h3>
 <ul>
 <li>Request mode:</li>
 </ul>
@@ -2675,7 +2678,7 @@
           <span class="ss">btcusdt: </span><span class="p">{</span><span class="ss">amount: </span><span class="s2">"999341.34124"</span><span class="p">,</span> <span class="ss">close: </span><span class="s2">"6450.18"</span><span class="p">,</span> <span class="ss">high: </span><span class="s2">"6486.39"</span><span class="p">,</span> <span class="ss">low: </span><span class="s2">"6359.63"</span><span class="p">,</span> <span class="ss">open: </span><span class="s2">"6435.79"</span><span class="p">,</span> <span class="err">…</span><span class="p">}</span>
    <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div><h2 id='ws-api-demo-java'><p id="ws-api-java" style="margin-top:50%">ws-api Demo (java) </p></h2><div class="highlight"><pre class="highlight mosel"><code>
+</code></pre></div><h2 id='ws-api-demo-java'><p id="ws-api-java">ws-api Demo (java) </p></h2><div class="highlight"><pre class="highlight mosel"><code>
 <span class="k">package</span> <span class="n">test</span><span class="p">;</span>
 
 <span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">io</span><span class="p">.</span><span class="n">ByteArrayInputStream</span><span class="p">;</span>
