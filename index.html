@@ -414,13 +414,12 @@
 
 <p><strong>For example:</strong></p>
 
-<p>api_key = 1234567</p>
-
-<p>time = 12312312312137</p>
-
-<p>secret_key = 789654</p>
-
-<p>sign = md5(api_key1234567time12312312312137789654)</p>
+<ul>
+<li>api_key = 1234567</li>
+<li>time = 12312312312137</li>
+<li>secret_key = 789654</li>
+<li>sign = md5(api_key1234567time12312312312137789654)</li>
+</ul>
 <h2 id='request-process'><span id="a6">Request Process</span></h2>
 <p>The root URL for REST access：<code>https://api.Exchange.com</code></p>
 <h3 id='request'><span id="a7">Request</span></h3>
@@ -428,16 +427,16 @@
 
 <p><strong>Request Process Descriptions</strong></p>
 
-<p>1、Request parameter: parameter encapsulation based on the port request.</p>
+<ol>
+<li><p>Request parameter: parameter encapsulation based on the port request.</p></li>
+<li><p>Submitting request parameter: submit the encapsulated parameter request to the server via POST/GET/PUT/DELETE or other methods.</p></li>
+<li><p>Server response: the server will first perform a security validation, then send back the requested data to the client in JSON format.</p></li>
+<li><p>Data processing: processing server response data.</p></li>
+</ol>
 
-<p>2、Submitting request parameter: submit the encapsulated parameter request to the server via POST/GET/PUT/DELETE or other methods.</p>
+<p><strong>Success</strong></p>
 
-<p>3、Server response: the server will first perform a security validation, then send back the requested data to the client in JSON format.</p>
-
-<p>4、Data processing: processing server response data.</p>
-
-<p><strong>Success</strong>
-HTTP status code 200 indicates a successful response and may contain content. If the response contains content, it will appear in the corresponding returned content.</p>
+<p>HTTP status code 200 indicates a successful response and may contain content. If the response contains content, it will appear in the corresponding returned content.</p>
 
 <p><strong>Common Error Code</strong></p>
 
