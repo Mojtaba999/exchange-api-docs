@@ -330,7 +330,7 @@
                     <a href="#request-process" class="toc-h2 toc-link" data-title="Request Process"><span id="a6">Request Process</span></a>
                   </li>
                   <li>
-                    <a href="#standards-and-specification" class="toc-h2 toc-link" data-title="Standards and Specification"><span id="a9">Standards and Specification</span></a>
+                    <a href="#standards-and-specification" class="toc-h2 toc-link" data-title="Standards and Specification">Standards and Specification</a>
                   </li>
               </ul>
           </li>
@@ -338,7 +338,7 @@
             <a href="#api-reference" class="toc-h1 toc-link" data-title=" API Reference"><span id="b5"> API Reference</span></a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#open-api" class="toc-h2 toc-link" data-title="open-api"><span id="b6">open-api</span></a>
+                    <a href="#open-api" class="toc-h2 toc-link" data-title="open-api">open-api</a>
                   </li>
                   <li>
                     <a href="#ws-api-demo-java" class="toc-h2 toc-link" data-title="ws-api Demo (java) "><span id="ws-api-java">ws-api Demo (java) </span></a>
@@ -414,12 +414,13 @@
 
 <p><strong>For example:</strong></p>
 
-<ul>
-<li>api_key = 1234567</li>
-<li>time = 12312312312137</li>
-<li>secret_key = 789654</li>
-<li>sign = md5(api_key1234567time12312312312137789654)</li>
-</ul>
+<p>api_key = 1234567</p>
+
+<p>time = 12312312312137</p>
+
+<p>secret_key = 789654</p>
+
+<p>sign = md5(api_key1234567time12312312312137789654)</p>
 <h2 id='request-process'><span id="a6">Request Process</span></h2>
 <p>The root URL for REST access：<code>https://api.Exchange.com</code></p>
 <h3 id='request'><span id="a7">Request</span></h3>
@@ -458,7 +459,7 @@
 <p><strong>For example:</strong></p>
 
 <p><code>GET /orders?before=2&amp;limit=30</code></p>
-<h2 id='standards-and-specification'><span id="a9">Standards and Specification</span></h2><h3 id='timestamp'><span id="b1">Timestamp</span></h3>
+<h2 id='standards-and-specification'>Standards and Specification</h2><h3 id='timestamp'><span id="b1">Timestamp</span></h3>
 <p>Unless otherwise specified, all timestamps in APIs are returned in microseconds.</p>
 
 <p>The ACCESS-TIMESTAMP header must be the number of seconds since UTC&#39;s time Unix Epoch. Decimal values are allowed. Your timestamp must be within 30 seconds of the API service time, otherwise your request will be considered expired and rejected. If you think there is a large time difference between your server and the API server, then we recommend that you use the time point to check the API server time.</p>
@@ -468,17 +469,13 @@
 <p>In order to maintain the accuracy of cross-platform, decimal numbers are returned as strings. We suggest that you might be better to convert the number to string when issuing the request to avoid truncation and precision errors. Integers (such as transaction number and sequence) do not need quotation marks.</p>
 <h3 id='rate-limits'><span id="b4">Rate Limits</span></h3>
 <p>When a rate limit is exceeded, a status of 429 Too Many Requests will be returned.</p>
-
-<p>REST API</p>
-
+<h3 id='rest-api'>REST API</h3>
 <ul>
 <li><p>Public interface: We limit the invocation of public interface via IP: up to 6 requests every 2s.</p></li>
 <li><p>Private interface: We limit the invocation of private interface via user ID: up to 6 requests every 2s.</p></li>
 <li><p>Special restrictions on specified interfaces are specified.</p></li>
 </ul>
-
-<hr>
-<h1 id='api-reference'><span id="b5"> API Reference</span></h1><h2 id='open-api'><span id="b6">open-api</span></h2><h3 id='balance-of-assets'><span id="1">Balance of assets</span></h3>
+<h1 id='api-reference'><span id="b5"> API Reference</span></h1><h2 id='open-api'>open-api</h2><h3 id='balance-of-assets'>Balance of assets</h3>
 <ol>
 <li>Interface address: /open/api/user/account</li>
 <li>Interface specification: (get request)Balance of the assets</li>
@@ -533,8 +530,6 @@
 <td>total_asset:total assets<br>normal:Balance account<br>locked：Frozen accounts<br>btcValuatin：BTCValuation</td>
 </tr>
 </tbody></table>
-
-<hr>
 <h3 id='acquire-full-delegation'><span id="2">Acquire full delegation</span></h3>
 <ol>
 <li>Interface address:/open/api/v2/all_order</li>
@@ -548,7 +543,7 @@
 <li><p>v2Version change: Remove from the result return value tradeListTransaction record,Enhance efficiency;If transaction information for a single order is required</p></li>
 </ul>
 
-<p>,you can use /open/api/order_info interface and check it</p>
+<p>you can use /open/api/order_info interface and check it</p>
 
 <table><thead>
 <tr>
@@ -624,49 +619,49 @@
 <td></td>
 </tr>
 </tbody></table>
-<div class="highlight"><pre class="highlight plaintext"><code>{
-    "count":10,
-    "orderList":[
-        {
-            "side":"BUY",
-            "total_price":"0.10000000",
-            "created_at":1510993841000,
-            "avg_price":"0.10000000",
-            "countCoin":"btc",
-            "source":1,
-            "type":1,
-            "side_msg":"Purchase",
-            "volume":"1.000",
-            "price":"0.10000000",
-            "source_msg":"WEB",
-            "status_msg":"Full deal",
-            "deal_volume":"1.00000000",
-            "id":424,
-            "remain_volume":"0.00000000",
-            "baseCoin":"eth",
-            "status":2
-        },
-        {
-            "side":"SELL",
-            "total_price":"0.09900000",
-            "created_at":1510993715000,
-            "avg_price":"0.10000000",
-            "countCoin":"btc",
-            "source":1,
-            "type":1,
-            "side_msg":"Sell out",
-            "volume":"1.000",
-            "price":"0.09900000",
-            "source_msg":"WEB",
-            "status_msg":"Full deal",
-            "deal_volume":"1.00000000",
-            "id":423,
-            "remain_volume":"0.00000000",
-            "baseCoin":"eth",
-            "status":2
-        }
-    ]
-}
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="p">{</span>
+    <span class="s2">"count"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span>
+    <span class="s2">"orderList"</span><span class="p">:[</span>
+        <span class="p">{</span>
+            <span class="s2">"side"</span><span class="ss">:"BUY"</span><span class="p">,</span>
+            <span class="s2">"total_price"</span><span class="ss">:"0.10000000"</span><span class="p">,</span>
+            <span class="s2">"created_at"</span><span class="p">:</span><span class="mi">1510993841000</span><span class="p">,</span>
+            <span class="s2">"avg_price"</span><span class="ss">:"0.10000000"</span><span class="p">,</span>
+            <span class="s2">"countCoin"</span><span class="ss">:"btc"</span><span class="p">,</span>
+            <span class="s2">"source"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+            <span class="s2">"type"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+            <span class="s2">"side_msg"</span><span class="ss">:"Purchase"</span><span class="p">,</span>
+            <span class="s2">"volume"</span><span class="ss">:"1.000"</span><span class="p">,</span>
+            <span class="s2">"price"</span><span class="ss">:"0.10000000"</span><span class="p">,</span>
+            <span class="s2">"source_msg"</span><span class="ss">:"WEB"</span><span class="p">,</span>
+            <span class="s2">"status_msg"</span><span class="ss">:"Full deal"</span><span class="p">,</span>
+            <span class="s2">"deal_volume"</span><span class="ss">:"1.00000000"</span><span class="p">,</span>
+            <span class="s2">"id"</span><span class="p">:</span><span class="mi">424</span><span class="p">,</span>
+            <span class="s2">"remain_volume"</span><span class="ss">:"0.00000000"</span><span class="p">,</span>
+            <span class="s2">"baseCoin"</span><span class="ss">:"eth"</span><span class="p">,</span>
+            <span class="s2">"status"</span><span class="p">:</span><span class="mi">2</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">"side"</span><span class="ss">:"SELL"</span><span class="p">,</span>
+            <span class="s2">"total_price"</span><span class="ss">:"0.09900000"</span><span class="p">,</span>
+            <span class="s2">"created_at"</span><span class="p">:</span><span class="mi">1510993715000</span><span class="p">,</span>
+            <span class="s2">"avg_price"</span><span class="ss">:"0.10000000"</span><span class="p">,</span>
+            <span class="s2">"countCoin"</span><span class="ss">:"btc"</span><span class="p">,</span>
+            <span class="s2">"source"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+            <span class="s2">"type"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+            <span class="s2">"side_msg"</span><span class="ss">:"Sell out"</span><span class="p">,</span>
+            <span class="s2">"volume"</span><span class="ss">:"1.000"</span><span class="p">,</span>
+            <span class="s2">"price"</span><span class="ss">:"0.09900000"</span><span class="p">,</span>
+            <span class="s2">"source_msg"</span><span class="ss">:"WEB"</span><span class="p">,</span>
+            <span class="s2">"status_msg"</span><span class="ss">:"Full deal"</span><span class="p">,</span>
+            <span class="s2">"deal_volume"</span><span class="ss">:"1.00000000"</span><span class="p">,</span>
+            <span class="s2">"id"</span><span class="p">:</span><span class="mi">423</span><span class="p">,</span>
+            <span class="s2">"remain_volume"</span><span class="ss">:"0.00000000"</span><span class="p">,</span>
+            <span class="s2">"baseCoin"</span><span class="ss">:"eth"</span><span class="p">,</span>
+            <span class="s2">"status"</span><span class="p">:</span><span class="mi">2</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
 </code></pre></div>
 <table><thead>
 <tr>
