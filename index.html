@@ -2383,13 +2383,17 @@
 <ul>
 <li>request:</li>
 </ul>
-<div class="highlight"><pre class="highlight plaintext"><code>{"event":"sub","params":{"channel":"market_$base$quote_kline_[1min/5min/15min/30min/60min/1day/1week/1month]","cb_id":"custom"}}
-</code></pre></div>
+
+<p><code>{&quot;event&quot;:&quot;sub&quot;,&quot;params&quot;:{&quot;channel&quot;:&quot;market_$base$quote_kline_[1min/5min/15min/30min/60min/1day/1week/1month]&quot;,&quot;cb_id&quot;:&quot;custom&quot;}}</code></p>
+
 <ul>
 <li>Return to subscription status once:</li>
 </ul>
-<div class="highlight"><pre class="highlight plaintext"><code>{"event_rep":"subed","channel":"market_$base$quote_kline_[1min/5min/15min/30min/60min/1day/1week/1month]","cb_id":"Please Return by the Way You Came","ts":1506584998239,"status":"ok"}
-</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="p">{</span>
+
+<p><code>
+{&quot;event_rep&quot;:&quot;subed&quot;,&quot;channel&quot;:&quot;market_$base$quote_kline_[1min/5min/15min/30min/60min/1day/1week/1month]&quot;,&quot;cb_id&quot;:&quot;Please Return by the Way You Came&quot;,&quot;ts&quot;:1506584998239,&quot;status&quot;:&quot;ok&quot;}
+</code></p>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="p">{</span>
     <span class="s2">"channel"</span><span class="ss">:"market_$base$quote_kline_[1min/5min/15min/30min/60min/1day/1week/1month]"</span><span class="p">,</span><span class="sr">//</span><span class="no">Subscription</span> <span class="n">transactions</span> <span class="n">versus</span> <span class="n">market</span><span class="vg">$base$quoteExpressbtckrwetc</span><span class="o">.</span>
 
     <span class="s2">"ts"</span><span class="p">:</span><span class="mi">1506584998239</span><span class="p">,</span><span class="sr">//</span><span class="no">Request</span> <span class="n">time</span>
