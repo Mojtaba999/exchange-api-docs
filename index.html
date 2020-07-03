@@ -315,6 +315,23 @@
             <a href="#getting-started" class="toc-h1 toc-link" data-title="Getting Started">Getting Started</a>
           </li>
           <li>
+            <a href="#encrypted-verification-of-api" class="toc-h1 toc-link" data-title="Encrypted Verification of API">Encrypted Verification of API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#generate-an-api-key" class="toc-h2 toc-link" data-title="Generate an API Key">Generate an API Key</a>
+                  </li>
+                  <li>
+                    <a href="#initiate-a-request" class="toc-h2 toc-link" data-title="Initiate a Request">Initiate a Request</a>
+                  </li>
+                  <li>
+                    <a href="#signature" class="toc-h2 toc-link" data-title="Signature">Signature</a>
+                  </li>
+                  <li>
+                    <a href="#request-process" class="toc-h2 toc-link" data-title="Request Process"><span id="a6">Request Process</span></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
               <ul class="toc-list-h2">
                   <li>
@@ -344,8 +361,6 @@
 <p>Welcome to <a href="https://www.exchange.com/index">Exchange</a> API document for developers.</p>
 
 <p>This file provides the related API application introduction. Open-API includes the port to acquire balance, all orders ,and all transaction record. Ws-API response for the port of K line functions.</p>
-
-<p>This example API documentation page was created with <a href="https://github.com/slatedocs/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
 <h1 id='getting-started'>Getting Started</h1>
 <p>REST, a.k.a Respresntational State Transfer, is an architectural style that defines a set of constraints and properties based on HTTP. REST is known for its clear structure, readability, standardization and scalability. Its advantages are as follows:</p>
 
@@ -354,6 +369,57 @@
 <li>Acting as a representation of resources between client and server.</li>
 <li>Client is enabled to operate server-side resources with 4 HTTP requests - representational state transfer.</li>
 </ul>
+
+<p>Developers are recommended to use REST API to proceed spot trading and withdrawals.</p>
+<h1 id='encrypted-verification-of-api'>Encrypted Verification of API</h1><h2 id='generate-an-api-key'>Generate an API Key</h2>
+<p>Before signing any request, you must generate an API key via <a href="https://www.exchange.com/index">Exchange’s official website</a> 【User Center】-【API】. After generating the key, there are three things you must bear in mind:</p>
+
+<ul>
+<li>API Key</li>
+<li>Secret Key</li>
+</ul>
+
+<p>API Key and Secret are randomly generated and provided, Passphrase is set by user.</p>
+<h2 id='initiate-a-request'>Initiate a Request</h2>
+<p>All REST requests must include the following headings:</p>
+
+<ul>
+<li>ACCESS-KEY API Key as a string.</li>
+<li>ACCESS-SIGN uses base64-encoded signatures (see Signed Messages).</li>
+<li>ACCESS-TIMESTAMP is the timestamp of your request.header MUST be number of seconds since Unix Epoch in UTC. Decimal values are allowed.</li>
+<li>All requests should contain content like application/x-www-form-urlencoded and be valid JSON.</li>
+</ul>
+<h2 id='signature'>Signature</h2>
+<p>Generate a string to be signed - <a href="https://github.com/exchange-doc/api/blob/master/demo/demo.java">open-api Demo</a></p>
+
+<ol>
+<li>Sort the parameters in ascending order of their parameter names in lexicographic order</li>
+<li>Traversing the sorted dictionary, splicing all parameters together in &quot;keyvalue&quot; format (non-null parameters)</li>
+<li>Use MD5 to treat signature strings</li>
+</ol>
+
+<p><strong>For example:</strong></p>
+
+<p>api_key = 1234567
+time = 12312312312137
+secret_key = 789654
+sign = md5(api_key1234567time12312312312137789654)</p>
+<h2 id='request-process'><span id="a6">Request Process</span></h2>
+<p>The root URL for REST access：<code>https://api.Exchange.com</code></p>
+<h3 id='request'><span id="a7">Request</span></h3>
+<p>All requests are based on Https protocol, contentType in the request header must be uniformly set as: ‘application/x-www-form-urlencoded’.</p>
+
+<p><strong>Request Process Descriptions</strong></p>
+
+<p>1、Request parameter: parameter encapsulation based on the port request.</p>
+
+<p>2、Submitting request parameter: submit the encapsulated parameter request to the server via POST/GET/PUT/DELETE or other methods.</p>
+
+<p>3、Server response: the server will first perform a security validation, then send back the requested data to the client in JSON format.</p>
+
+<p>4、Data processing: processing server response data.</p>
+
+<p><strong>Success</strong></p>
 
 <blockquote>
 <p>To authorize, use this code:</p>
