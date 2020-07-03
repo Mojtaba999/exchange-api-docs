@@ -708,8 +708,6 @@
 <td>-</td>
 </tr>
 </tbody></table>
-
-<hr>
 <h3 id='obtain-all-transaction-records'><span id="3">Obtain all transaction records</span></h3>
 <ol>
 <li>Interface address:/open/api/all_trade</li>
@@ -769,54 +767,54 @@
 <td>autograph</td>
 </tr>
 </tbody></table>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">count</span><span class="dl">"</span><span class="p">:</span><span class="mi">22</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">resultList</span><span class="dl">"</span><span class="p">:[</span>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="p">{</span>
+    <span class="s2">"count"</span><span class="p">:</span><span class="mi">22</span><span class="p">,</span>
+    <span class="s2">"resultList"</span><span class="p">:[</span>
         <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">volume</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1.000</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BUY</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">feeCoin</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">YLB</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.10000000</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">fee</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.16431104</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">ctime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1510996571195</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">deal_price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.10000000</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="mi">306</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Purchase</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">bid_id</span><span class="dl">"</span><span class="p">:</span><span class="mi">1001</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">ask_id</span><span class="dl">"</span><span class="p">:</span><span class="mi">1002</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">bid_user_id</span><span class="dl">"</span><span class="p">:</span><span class="mi">10001</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">ask_user_id</span><span class="dl">"</span><span class="p">:</span><span class="mi">10001</span>
+            <span class="s2">"volume"</span><span class="ss">:"1.000"</span><span class="p">,</span>
+            <span class="s2">"side"</span><span class="ss">:"BUY"</span><span class="p">,</span>
+            <span class="s2">"feeCoin"</span><span class="ss">:"YLB"</span><span class="p">,</span>
+            <span class="s2">"price"</span><span class="ss">:"0.10000000"</span><span class="p">,</span>
+            <span class="s2">"fee"</span><span class="ss">:"0.16431104"</span><span class="p">,</span>
+            <span class="s2">"ctime"</span><span class="p">:</span><span class="mi">1510996571195</span><span class="p">,</span>
+            <span class="s2">"deal_price"</span><span class="ss">:"0.10000000"</span><span class="p">,</span>
+            <span class="s2">"id"</span><span class="p">:</span><span class="mi">306</span><span class="p">,</span>
+            <span class="s2">"type"</span><span class="ss">:"Purchase"</span><span class="p">,</span>
+            <span class="s2">"bid_id"</span><span class="p">:</span><span class="mi">1001</span><span class="p">,</span>
+            <span class="s2">"ask_id"</span><span class="p">:</span><span class="mi">1002</span><span class="p">,</span>
+            <span class="s2">"bid_user_id"</span><span class="p">:</span><span class="mi">10001</span><span class="p">,</span>
+            <span class="s2">"ask_user_id"</span><span class="p">:</span><span class="mi">10001</span>
 
         <span class="p">},</span>
         <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">volume</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.850</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BUY</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">feeCoin</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">YLB</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.10000000</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">fee</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.13966438</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">ctime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1510996571190</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">deal_price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.08500000</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="mi">305</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Purchase</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">bid_id</span><span class="dl">"</span><span class="p">:</span><span class="mi">1001</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">ask_id</span><span class="dl">"</span><span class="p">:</span><span class="mi">1002</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">bid_user_id</span><span class="dl">"</span><span class="p">:</span><span class="mi">10001</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">ask_user_id</span><span class="dl">"</span><span class="p">:</span><span class="mi">10001</span>
+            <span class="s2">"volume"</span><span class="ss">:"0.850"</span><span class="p">,</span>
+            <span class="s2">"side"</span><span class="ss">:"BUY"</span><span class="p">,</span>
+            <span class="s2">"feeCoin"</span><span class="ss">:"YLB"</span><span class="p">,</span>
+            <span class="s2">"price"</span><span class="ss">:"0.10000000"</span><span class="p">,</span>
+            <span class="s2">"fee"</span><span class="ss">:"0.13966438"</span><span class="p">,</span>
+            <span class="s2">"ctime"</span><span class="p">:</span><span class="mi">1510996571190</span><span class="p">,</span>
+            <span class="s2">"deal_price"</span><span class="ss">:"0.08500000"</span><span class="p">,</span>
+            <span class="s2">"id"</span><span class="p">:</span><span class="mi">305</span><span class="p">,</span>
+            <span class="s2">"type"</span><span class="ss">:"Purchase"</span><span class="p">,</span>
+            <span class="s2">"bid_id"</span><span class="p">:</span><span class="mi">1001</span><span class="p">,</span>
+            <span class="s2">"ask_id"</span><span class="p">:</span><span class="mi">1002</span><span class="p">,</span>
+            <span class="s2">"bid_user_id"</span><span class="p">:</span><span class="mi">10001</span><span class="p">,</span>
+            <span class="s2">"ask_user_id"</span><span class="p">:</span><span class="mi">10001</span>
         <span class="p">},</span>
         <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">volume</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.010</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BUY</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">feeCoin</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">YLB</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.10000000</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">fee</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.00164311</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">ctime</span><span class="dl">"</span><span class="p">:</span><span class="mi">1510995560344</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">deal_price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.00100000</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span><span class="mi">291</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Purchase</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">bid_id</span><span class="dl">"</span><span class="p">:</span><span class="mi">1001</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">ask_id</span><span class="dl">"</span><span class="p">:</span><span class="mi">1002</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">bid_user_id</span><span class="dl">"</span><span class="p">:</span><span class="mi">10001</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">ask_user_id</span><span class="dl">"</span><span class="p">:</span><span class="mi">10001</span>
+            <span class="s2">"volume"</span><span class="ss">:"0.010"</span><span class="p">,</span>
+            <span class="s2">"side"</span><span class="ss">:"BUY"</span><span class="p">,</span>
+            <span class="s2">"feeCoin"</span><span class="ss">:"YLB"</span><span class="p">,</span>
+            <span class="s2">"price"</span><span class="ss">:"0.10000000"</span><span class="p">,</span>
+            <span class="s2">"fee"</span><span class="ss">:"0.00164311"</span><span class="p">,</span>
+            <span class="s2">"ctime"</span><span class="p">:</span><span class="mi">1510995560344</span><span class="p">,</span>
+            <span class="s2">"deal_price"</span><span class="ss">:"0.00100000"</span><span class="p">,</span>
+            <span class="s2">"id"</span><span class="p">:</span><span class="mi">291</span><span class="p">,</span>
+            <span class="s2">"type"</span><span class="ss">:"Purchase"</span><span class="p">,</span>
+            <span class="s2">"bid_id"</span><span class="p">:</span><span class="mi">1001</span><span class="p">,</span>
+            <span class="s2">"ask_id"</span><span class="p">:</span><span class="mi">1002</span><span class="p">,</span>
+            <span class="s2">"bid_user_id"</span><span class="p">:</span><span class="mi">10001</span><span class="p">,</span>
+            <span class="s2">"ask_user_id"</span><span class="p">:</span><span class="mi">10001</span>
         <span class="p">}</span>
     <span class="p">]</span>
 <span class="p">}</span>
@@ -892,8 +890,6 @@
 <td>-</td>
 </tr>
 </tbody></table>
-
-<hr>
 <h3 id='cancellation-of-the-order'><span id="4">Cancellation of the order</span></h3>
 <ol>
 <li>Interface address:/open/api/cancel_order</li>
@@ -1206,61 +1202,61 @@
 <td>etcbtc</td>
 </tr>
 </tbody></table>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-   <span class="dl">"</span><span class="s2">date</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1534335607859</span><span class="p">,</span>
-   <span class="dl">"</span><span class="s2">ticker</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="p">{</span>
+   <span class="s2">"date"</span><span class="p">:</span> <span class="mi">1534335607859</span><span class="p">,</span>
+   <span class="s2">"ticker"</span><span class="p">:</span> <span class="p">[</span>
      <span class="p">{</span>
-       <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">btcusdt</span><span class="dl">"</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">high</span><span class="dl">"</span><span class="p">:</span> <span class="mf">7408.35984546</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">vol</span><span class="dl">"</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">last</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">low</span><span class="dl">"</span><span class="p">:</span> <span class="mf">7408.35984546</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">buy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3700.00000000</span><span class="dl">"</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">sell</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">7408.35984546</span><span class="dl">"</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">rose</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span>
+       <span class="s2">"symbol"</span><span class="p">:</span> <span class="s2">"btcusdt"</span><span class="p">,</span>
+       <span class="s2">"high"</span><span class="p">:</span> <span class="mf">7408.35984546</span><span class="p">,</span>
+       <span class="s2">"vol"</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
+       <span class="s2">"last"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+       <span class="s2">"low"</span><span class="p">:</span> <span class="mf">7408.35984546</span><span class="p">,</span>
+       <span class="s2">"buy"</span><span class="p">:</span> <span class="s2">"3700.00000000"</span><span class="p">,</span>
+       <span class="s2">"sell"</span><span class="p">:</span> <span class="s2">"7408.35984546"</span><span class="p">,</span>
+       <span class="s2">"rose"</span><span class="p">:</span> <span class="mi">0</span>
      <span class="p">},</span>
      <span class="p">{</span>
-       <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ethusdt</span><span class="dl">"</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">high</span><span class="dl">"</span><span class="p">:</span> <span class="mf">535.96</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">vol</span><span class="dl">"</span><span class="p">:</span> <span class="mf">6366.8591</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">last</span><span class="dl">"</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">low</span><span class="dl">"</span><span class="p">:</span> <span class="mf">279.57</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">rose</span><span class="dl">"</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.44564773</span>
+       <span class="s2">"symbol"</span><span class="p">:</span> <span class="s2">"ethusdt"</span><span class="p">,</span>
+       <span class="s2">"high"</span><span class="p">:</span> <span class="mf">535.96</span><span class="p">,</span>
+       <span class="s2">"vol"</span><span class="p">:</span> <span class="mf">6366.8591</span><span class="p">,</span>
+       <span class="s2">"last"</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+       <span class="s2">"low"</span><span class="p">:</span> <span class="mf">279.57</span><span class="p">,</span>
+       <span class="s2">"rose"</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.44564773</span>
      <span class="p">},</span>
      <span class="p">{</span>
-       <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">bchusdt</span><span class="dl">"</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">high</span><span class="dl">"</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">vol</span><span class="dl">"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">last</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">low</span><span class="dl">"</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">buy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">11.00</span><span class="dl">"</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">sell</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">9.00</span><span class="dl">"</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">rose</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span>
+       <span class="s2">"symbol"</span><span class="p">:</span> <span class="s2">"bchusdt"</span><span class="p">,</span>
+       <span class="s2">"high"</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+       <span class="s2">"vol"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+       <span class="s2">"last"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+       <span class="s2">"low"</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+       <span class="s2">"buy"</span><span class="p">:</span> <span class="s2">"11.00"</span><span class="p">,</span>
+       <span class="s2">"sell"</span><span class="p">:</span> <span class="s2">"9.00"</span><span class="p">,</span>
+       <span class="s2">"rose"</span><span class="p">:</span> <span class="mi">0</span>
      <span class="p">},</span>
      <span class="p">{</span>
-       <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ethbtc</span><span class="dl">"</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">high</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">vol</span><span class="dl">"</span><span class="p">:</span> <span class="mi">281261</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">last</span><span class="dl">"</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">low</span><span class="dl">"</span><span class="p">:</span> <span class="mf">0.044039</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">buy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.044049</span><span class="dl">"</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">sell</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.044049</span><span class="dl">"</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">rose</span><span class="dl">"</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.00022701</span>
+       <span class="s2">"symbol"</span><span class="p">:</span> <span class="s2">"ethbtc"</span><span class="p">,</span>
+       <span class="s2">"high"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+       <span class="s2">"vol"</span><span class="p">:</span> <span class="mi">281261</span><span class="p">,</span>
+       <span class="s2">"last"</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
+       <span class="s2">"low"</span><span class="p">:</span> <span class="mf">0.044039</span><span class="p">,</span>
+       <span class="s2">"buy"</span><span class="p">:</span> <span class="s2">"0.044049"</span><span class="p">,</span>
+       <span class="s2">"sell"</span><span class="p">:</span> <span class="s2">"0.044049"</span><span class="p">,</span>
+       <span class="s2">"rose"</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.00022701</span>
      <span class="p">},</span>
      <span class="p">{</span>
-       <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">nobbtc</span><span class="dl">"</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">high</span><span class="dl">"</span><span class="p">:</span> <span class="mf">0.007419</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">vol</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1998</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">last</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">low</span><span class="dl">"</span><span class="p">:</span> <span class="mf">0.007419</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">sell</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00741900</span><span class="dl">"</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">rose</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span>
+       <span class="s2">"symbol"</span><span class="p">:</span> <span class="s2">"nobbtc"</span><span class="p">,</span>
+       <span class="s2">"high"</span><span class="p">:</span> <span class="mf">0.007419</span><span class="p">,</span>
+       <span class="s2">"vol"</span><span class="p">:</span> <span class="mi">1998</span><span class="p">,</span>
+       <span class="s2">"last"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+       <span class="s2">"low"</span><span class="p">:</span> <span class="mf">0.007419</span><span class="p">,</span>
+       <span class="s2">"sell"</span><span class="p">:</span> <span class="s2">"0.00741900"</span><span class="p">,</span>
+       <span class="s2">"rose"</span><span class="p">:</span> <span class="mi">0</span>
      <span class="p">},</span>
      <span class="p">{</span>
-       <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ltceth</span><span class="dl">"</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">last</span><span class="dl">"</span><span class="p">:</span> <span class="mf">0.18519949</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">buy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.00000000</span><span class="dl">"</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">sell</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.18328001</span><span class="dl">"</span>
+       <span class="s2">"symbol"</span><span class="p">:</span> <span class="s2">"ltceth"</span><span class="p">,</span>
+       <span class="s2">"last"</span><span class="p">:</span> <span class="mf">0.18519949</span><span class="p">,</span>
+       <span class="s2">"buy"</span><span class="p">:</span> <span class="s2">"1.00000000"</span><span class="p">,</span>
+       <span class="s2">"sell"</span><span class="p">:</span> <span class="s2">"0.18328001"</span>
      <span class="p">}</span>
    <span class="p">]</span>
  <span class="p">}</span>
@@ -1366,34 +1362,34 @@
 <td>ltcusdt</td>
 </tr>
 </tbody></table>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">[</span>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="p">[</span>
         <span class="p">[</span>
-            <span class="mi">1514445780</span><span class="p">,</span>  <span class="c1">//time stamp</span>
-            <span class="mf">1.12</span><span class="p">,</span>        <span class="c1">//Opening price</span>
-            <span class="mf">1.12</span><span class="p">,</span>        <span class="c1">//Highest</span>
-            <span class="mf">1.12</span><span class="p">,</span>        <span class="c1">//minimum</span>
-            <span class="mf">1.12</span><span class="p">,</span>        <span class="c1">//Closing price</span>
-            <span class="mi">0</span>            <span class="c1">//volume</span>
+            <span class="mi">1514445780</span><span class="p">,</span>  <span class="sr">//</span><span class="n">time</span> <span class="n">stamp</span>
+            <span class="mf">1.12</span><span class="p">,</span>        <span class="sr">//</span><span class="no">Opening</span> <span class="n">price</span>
+            <span class="mf">1.12</span><span class="p">,</span>        <span class="sr">//</span><span class="no">Highest</span>
+            <span class="mf">1.12</span><span class="p">,</span>        <span class="sr">//minimum</span>
+            <span class="mf">1.12</span><span class="p">,</span>        <span class="sr">//</span><span class="no">Closing</span> <span class="n">price</span>
+            <span class="mi">0</span>            <span class="o">/</span><span class="sr">/volume
 
-        <span class="p">],</span>
-        <span class="p">[</span>
-            <span class="mi">1514445840</span><span class="p">,</span>
-            <span class="mf">1.12</span><span class="p">,</span>
-            <span class="mf">1.12</span><span class="p">,</span>
-            <span class="mf">1.12</span><span class="p">,</span>
-            <span class="mf">1.12</span><span class="p">,</span>
-            <span class="mi">0</span>
-        <span class="p">],</span>
-        <span class="p">[</span>
-            <span class="mi">1514445900</span><span class="p">,</span>
-            <span class="mf">1.12</span><span class="p">,</span>
-            <span class="mf">1.12</span><span class="p">,</span>
-            <span class="mf">1.12</span><span class="p">,</span>
-            <span class="mf">1.12</span><span class="p">,</span>
-            <span class="mi">0</span>
-        <span class="p">]</span>
-<span class="p">]</span>
-</code></pre></div>
+        ],
+        [
+            1514445840,
+            1.12,
+            1.12,
+            1.12,
+            1.12,
+            0
+        ],
+        [
+            1514445900,
+            1.12,
+            1.12,
+            1.12,
+            1.12,
+            0
+        ]
+]
+</span></code></pre></div>
 <p>Return value:</p>
 
 <table><thead>
@@ -1442,15 +1438,15 @@
 <td>Market mark，btcusdt，See below for details</td>
 </tr>
 </tbody></table>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">high</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span><span class="c1">//Maximum value</span>
-    <span class="dl">"</span><span class="s2">vol</span><span class="dl">"</span><span class="p">:</span> <span class="mf">10232.26315789</span><span class="p">,</span><span class="c1">//Trading volume</span>
-    <span class="dl">"</span><span class="s2">last</span><span class="dl">"</span><span class="p">:</span> <span class="mf">173.60263169</span><span class="p">,</span><span class="c1">//Latest Transaction Price</span>
-    <span class="dl">"</span><span class="s2">low</span><span class="dl">"</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span><span class="c1">//Minimum value</span>
-    <span class="dl">"</span><span class="s2">buy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01000000</span><span class="dl">"</span><span class="p">,</span><span class="c1">//Buy one price</span>
-    <span class="dl">"</span><span class="s2">sell</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.12345680</span><span class="dl">"</span><span class="p">,</span><span class="c1">//Selling price</span>
-    <span class="dl">"</span><span class="s2">rose</span><span class="dl">"</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.44564773</span><span class="p">,</span><span class="c1">//Ups and downs</span>
-    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1514448473626</span>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="p">{</span>
+    <span class="s2">"high"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span><span class="sr">//</span><span class="no">Maximum</span> <span class="n">value</span>
+    <span class="s2">"vol"</span><span class="p">:</span> <span class="mf">10232.26315789</span><span class="p">,</span><span class="sr">//</span><span class="no">Trading</span> <span class="n">volume</span>
+    <span class="s2">"last"</span><span class="p">:</span> <span class="mf">173.60263169</span><span class="p">,</span><span class="sr">//</span><span class="no">Latest</span> <span class="no">Transaction</span> <span class="no">Price</span>
+    <span class="s2">"low"</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span><span class="sr">//</span><span class="no">Minimum</span> <span class="n">value</span>
+    <span class="s2">"buy"</span><span class="p">:</span> <span class="s2">"0.01000000"</span><span class="p">,</span><span class="sr">//</span><span class="no">Buy</span> <span class="n">one</span> <span class="n">price</span>
+    <span class="s2">"sell"</span><span class="p">:</span> <span class="s2">"1.12345680"</span><span class="p">,</span><span class="sr">//</span><span class="no">Selling</span> <span class="n">price</span>
+    <span class="s2">"rose"</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.44564773</span><span class="p">,</span><span class="sr">//</span><span class="no">Ups</span> <span class="n">and</span> <span class="n">downs</span>
+    <span class="s2">"time"</span><span class="p">:</span> <span class="mi">1514448473626</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Return value:</p>
@@ -1541,12 +1537,12 @@
 <td>Market mark，bchbtc，See below for details</td>
 </tr>
 </tbody></table>
-<div class="highlight"><pre class="highlight plaintext"><code>[
-        {
-            "amount": 0.55,//volume
-            "price": 0.18519949,//Transaction price
-            "id": 447121,
-            "type": "buy"//Businesstype，Buy asbuy，buysell
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"amount"</span><span class="p">:</span> <span class="mf">0.55</span><span class="p">,</span><span class="sr">//</span><span class="n">volume</span>
+            <span class="s2">"price"</span><span class="p">:</span> <span class="mf">0.18519949</span><span class="p">,</span><span class="sr">//</span><span class="no">Transaction</span> <span class="n">price</span>
+            <span class="s2">"id"</span><span class="p">:</span> <span class="mi">447121</span><span class="p">,</span>
+            <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"buy"</span><span class="o">/</span><span class="sr">/Businesstype，Buy asbuy，buysell
         },
         {
             "amount": 16.45,
@@ -1567,7 +1563,7 @@
             "type": "sell"
         }
 ]
-</code></pre></div>
+</span></code></pre></div>
 <p>Return value:</p>
 
 <table><thead>
@@ -1756,16 +1752,16 @@
 <td>Depth type，step0, step1, step2（Merger depth0-2）；step0time，The highest accuracy</td>
 </tr>
 </tbody></table>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>  
-    <span class="dl">"</span><span class="s2">tick</span><span class="dl">"</span><span class="p">:{</span>
-        <span class="dl">"</span><span class="s2">asks</span><span class="dl">"</span><span class="p">:[</span><span class="c1">//Selling</span>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="p">{</span>  
+    <span class="s2">"tick"</span><span class="p">:{</span>
+        <span class="s2">"asks"</span><span class="p">:[</span><span class="sr">//</span><span class="no">Selling</span>
             <span class="p">{</span><span class="mf">22112.22</span><span class="p">,</span><span class="mf">0.9332</span><span class="p">},</span>
             <span class="p">{</span><span class="mf">22112.21</span><span class="p">,</span><span class="mf">0.2</span><span class="p">},</span>
             <span class="p">{</span><span class="mf">22112.21</span><span class="p">,</span><span class="mf">0.2</span><span class="p">},</span>
             <span class="p">{</span><span class="mf">22112.21</span><span class="p">,</span><span class="mf">0.2</span><span class="p">},</span>
             <span class="p">{</span><span class="mf">22112.21</span><span class="p">,</span><span class="mf">0.2</span><span class="p">},</span>
         <span class="p">],</span>
-        <span class="dl">"</span><span class="s2">bids</span><span class="dl">"</span><span class="p">:[</span><span class="c1">//Bid</span>
+        <span class="s2">"bids"</span><span class="p">:[</span><span class="sr">//</span><span class="no">Bid</span>
             <span class="p">{</span><span class="mf">22111.22</span><span class="p">,</span><span class="mf">0.9332</span><span class="p">},</span>
             <span class="p">{</span><span class="mf">22111.21</span><span class="p">,</span><span class="mf">0.2</span><span class="p">},</span>
             <span class="p">{</span><span class="mf">22112.21</span><span class="p">,</span><span class="mf">0.2</span><span class="p">},</span>
