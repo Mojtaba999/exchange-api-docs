@@ -340,9 +340,6 @@
                   <li>
                     <a href="#open-api" class="toc-h2 toc-link" data-title="open-api">open-api</a>
                   </li>
-                  <li>
-                    <a href="#ws-api-demo-java" class="toc-h2 toc-link" data-title="ws-api Demo (java) "><span id="ws-api-java">ws-api Demo (java) </span></a>
-                  </li>
               </ul>
           </li>
           <li>
@@ -2447,434 +2444,465 @@
 <ul>
 <li>Continue to return subscription messages:</li>
 </ul>
-
-<hr>
 <h3 id='subscription-deep-port-high-frequency'><p id="21" style="margin-top:60%">Subscription - Deep Port (High Frequency)</p></h3>
 <ul>
-<li>request:
-<code>
-{&quot;event&quot;:&quot;sub&quot;,&quot;params&quot;:{&quot;channel&quot;:&quot;market_$base$quote_depth_step[0-2]&quot;,&quot;cb_id&quot;:&quot;custom&quot;,&quot;asks&quot;:150,&quot;bids&quot;:150}}
-</code></li>
-<li><p>Return to subscription status once:
-<code>
-{&quot;event_rep&quot;:&quot;subed&quot;,&quot;channel&quot;:&quot;market_$base$quote_depth_step[0-2]&quot;,&quot;cb_id&quot;:&quot;Please Return by the Way You Came&quot;,&quot;asks&quot;:150,&quot;bids&quot;:150,&quot;ts&quot;:1506584998239,&quot;status&quot;:&quot;ok&quot;}
-</code></p></li>
-<li><p>Note: The first successful subscription will immediately return a full amount of data, and the server will regularly push a full amount of data to the front-end to avoid data problems</p></li>
-<li><p>Full quantity: the front end directly replaces the original disk outlet
-<code>
-{
-&quot;channel&quot;:&quot;market_$base$quote_depth_step[0-2]&quot;,//$base$quoteExpressbtckrwetc.,Depth has three dimensions，0、1、2
-&quot;ts&quot;:1506584998239,//Request time
-&quot;tick&quot;:{
-    &quot;asks&quot;:[//Selling
-        [22112.22,0.9332],
-        [22112.21,0.2],
-    ],
-    &quot;buys&quot;:[//Bid
-        [22111.22,0.9332],
-        [22111.21,0.2],
-    ]
-}
-}
-</code></p></li>
-<li><p>Note: The front end of incremental inventory information only needs to replace the quantity corresponding to the price， volume=Delete at 0 o&#39;clock， priceWith the original opening of a price segment price Equal-time updatevolume,  Direct addition of new price</p></li>
-<li><p>Direct addition of new price
-<code>
-{
-&quot;channel&quot;:&quot;market_$base$quote_depth_step[0-2]&quot;,//$base$quoteExpressbtckrwetc.,Depth has 3 dimensions，0、1、2
-&quot;ts&quot;:1506584998239,//Request time
-&quot;tick&quot;:{
-    &quot;side&quot;: &quot;asks&quot;, Trading Direction  asks：Selling  buys: Bid  
-    &quot;price&quot; : 133.55,  A price segment corresponding to the opening
-    &quot;volume&quot; : 44.22   Quantity corresponding to price segment
-}
-}
-</code></p></li>
+<li>request:</li>
 </ul>
 
-<hr>
-<h3 id='subscription-deep-port'><span id="22">Subscription - Deep Port</span></h3>
-<ul>
-<li>request:
-<code>
+<p><code>
 {&quot;event&quot;:&quot;sub&quot;,&quot;params&quot;:{&quot;channel&quot;:&quot;market_$base$quote_depth_step[0-2]&quot;,&quot;cb_id&quot;:&quot;custom&quot;,&quot;asks&quot;:150,&quot;bids&quot;:150}}
-</code></li>
-<li>Return to subscription status once:
-<code>
-{&quot;event_rep&quot;:&quot;subed&quot;,&quot;channel&quot;:&quot;market_$base$quote_depth_step[0-2]&quot;,&quot;cb_id&quot;:&quot;Please Return by the Way You Came&quot;,&quot;asks&quot;:150,&quot;bids&quot;:150,&quot;ts&quot;:1506584998239,&quot;status&quot;:&quot;ok&quot;}
-</code></li>
-<li>Continue to return subscription messages:
-<code>
-{
-&quot;channel&quot;:&quot;market_$base$quote_depth_step[0-2]&quot;,//$base$quoteRepresents btckrw, etc.,Depth has 3 dimensions，0、1、2
-&quot;ts&quot;:1506584998239,//Request time
-&quot;tick&quot;:{
-    &quot;asks&quot;:[//Selling
-        [22112.22,0.9332],
-        [22112.21,0.2]
-    ],
-    &quot;buys&quot;:[//Bid
-        [22111.22,0.9332],
-        [22111.21,0.2]
-    ]
-}
-}
-</code></li>
+</code></p>
+
+<ul>
+<li>Return to subscription status once:</li>
 </ul>
 
-<hr>
-<h3 id='subscription-real-time-transaction-information'><span id="23">Subscription-Real-time Transaction Information </span></h3>
+<p><code>
+{&quot;event_rep&quot;:&quot;subed&quot;,&quot;channel&quot;:&quot;market_$base$quote_depth_step[0-2]&quot;,&quot;cb_id&quot;:&quot;Please Return by the Way You Came&quot;,&quot;asks&quot;:150,&quot;bids&quot;:150,&quot;ts&quot;:1506584998239,&quot;status&quot;:&quot;ok&quot;}
+</code></p>
+
+<aside class="notice">
+    Note: The first successful subscription will immediately return a full amount of data, and the server will regularly push a full amount of data to the front-end to avoid data problems
+</aside>
+
 <ul>
-<li>request:
-<code>
-{&quot;event&quot;:&quot;sub&quot;,&quot;params&quot;:{&quot;channel&quot;:&quot;market_$base$quote_trade_ticker&quot;,&quot;cb_id&quot;:&quot;custom&quot;}}
-</code></li>
-<li>Return to subscription status once:
-<code>
-{&quot;event_rep&quot;:&quot;subed&quot;,&quot;channel&quot;:&quot;market_$base$quote_trade_ticker&quot;,&quot;cb_id&quot;:&quot;Please Return by the Way You Came&quot;,&quot;ts&quot;:1506584998239,&quot;status&quot;:&quot;ok&quot;}
-</code></li>
-<li>Continue to return subscription messages:
-<code>
+<li>Full quantity: the front end directly replaces the original disk outlet</li>
+</ul>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="p">{</span>
+    <span class="s2">"channel"</span><span class="ss">:"market_$base$quote_depth_step[0-2]"</span><span class="p">,</span><span class="sr">//</span><span class="vg">$base$quoteExpressbtckrwetc</span><span class="p">.</span><span class="nf">,</span><span class="no">Depth</span> <span class="n">has</span> <span class="n">three</span> <span class="n">dimensions</span><span class="err">，</span><span class="mi">0</span><span class="err">、</span><span class="mi">1</span><span class="err">、</span><span class="mi">2</span>
+    <span class="s2">"ts"</span><span class="p">:</span><span class="mi">1506584998239</span><span class="p">,</span><span class="sr">//</span><span class="no">Request</span> <span class="n">time</span>
+    <span class="s2">"tick"</span><span class="p">:{</span>
+        <span class="s2">"asks"</span><span class="p">:[</span><span class="sr">//</span><span class="no">Selling</span>
+            <span class="p">[</span><span class="mf">22112.22</span><span class="p">,</span><span class="mf">0.9332</span><span class="p">],</span>
+            <span class="p">[</span><span class="mf">22112.21</span><span class="p">,</span><span class="mf">0.2</span><span class="p">],</span>
+        <span class="p">],</span>
+        <span class="s2">"buys"</span><span class="p">:[</span><span class="sr">//</span><span class="no">Bid</span>
+            <span class="p">[</span><span class="mf">22111.22</span><span class="p">,</span><span class="mf">0.9332</span><span class="p">],</span>
+            <span class="p">[</span><span class="mf">22111.21</span><span class="p">,</span><span class="mf">0.2</span><span class="p">],</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<aside class="notice">
+    Note: The front end of incremental inventory information only needs to replace the quantity corresponding to the price， volume=Delete at 0 o'clock， priceWith the original opening of a price segment price Equal-time updatevolume,  Direct addition of new price</aside>
+
+
+* <p style="margin-top:50%">Direct addition of new price</p>
+
+```ruby
 {
-&quot;channel&quot;:&quot;market_$base$quote_trade_ticker&quot;,//Subscription transactions versus market$base$quoteExpressbtckrwetc.
-&quot;ts&quot;:1506584998239,//Request time
-&quot;tick&quot;:{
-    &quot;id&quot;:12121,//dataThe biggest deal ID
-    &quot;ts&quot;:1506584998239,//dataThe biggest deal
-    &quot;data&quot;:[
+    "channel":"market_$base$quote_depth_step[0-2]",//$base$quoteExpressbtckrwetc.,Depth has 3 dimensions，0、1、2
+    "ts":1506584998239,//Request time
+    "tick":{
+        "side": "asks", Trading Direction  asks：Selling  buys: Bid  
+        "price" : 133.55,  A price segment corresponding to the opening
+        "volume" : 44.22   Quantity corresponding to price segment
+    }
+}
+```
+
+
+
+###  <p id="22" style="margin-top:60%">Subscription - Deep Port</p>
+
+* request:
+```
+{"event":"sub","params":{"channel":"market_$base$quote_depth_step[0-2]","cb_id":"custom","asks":150,"bids":150}}
+```
+* Return to subscription status once:
+```
+{"event_rep":"subed","channel":"market_$base$quote_depth_step[0-2]","cb_id":"Please Return by the Way You Came","asks":150,"bids":150,"ts":1506584998239,"status":"ok"}
+```
+* Continue to return subscription messages:
+```
+{
+    "channel":"market_$base$quote_depth_step[0-2]",//$base$quoteRepresents btckrw, etc.,Depth has 3 dimensions，0、1、2
+    "ts":1506584998239,//Request time
+    "tick":{
+        "asks":[//Selling
+            [22112.22,0.9332],
+            [22112.21,0.2]
+        ],
+        "buys":[//Bid
+            [22111.22,0.9332],
+            [22111.21,0.2]
+        ]
+    }
+}
+```
+
+---
+### <span id="23">Subscription-Real-time Transaction Information </span>
+
+* request:
+```
+{"event":"sub","params":{"channel":"market_$base$quote_trade_ticker","cb_id":"custom"}}
+```
+* Return to subscription status once:
+```
+{"event_rep":"subed","channel":"market_$base$quote_trade_ticker","cb_id":"Please Return by the Way You Came","ts":1506584998239,"status":"ok"}
+```
+* Continue to return subscription messages:
+```
+{
+    "channel":"market_$base$quote_trade_ticker",//Subscription transactions versus market$base$quoteExpressbtckrwetc.
+    "ts":1506584998239,//Request time
+    "tick":{
+        "id":12121,//dataThe biggest deal ID
+        "ts":1506584998239,//dataThe biggest deal
+        "data":[
+            {
+                "id":12121,//transaction ID
+                "side":"buy",//Direction of business buy,sell
+                "price":32.233,//Unit Price
+                "vol":232,//Number
+                "amount":323,//Total
+                "ts":1506584998239,//Data generation time
+                "ds":'2017-09-10 23:12:21'
+            },
+            {
+                "id":12120,//Transaction ID
+                "side":"buy",//Direction of business buy,sell
+                "price":32.233,//Unit Price
+                "vol":232,//Number
+                "amount":323,//Total
+                "ts":1506584998239,//Data generation time
+                "ds":'2017-09-10 23:12:21'
+            }
+        ]
+    }
+}
+```
+
+
+
+---
+### <span id="24">Request-K Line History Data</span>
+
+* Increase request parameters endIdx，pageSize（Up to 300, default 300 data）,If endIdx is empty, the last 300 historical data are returned
+
+* request:
+```
+{"event":"req","params":{"channel":"market_$base$quote_kline_[1min/5min/15min/30min/60min/1day/1week/1month]","cb_id":"custom","since":"1506602880"}}//since The default is to return the latest 300, a return value greater than since for up to 1 hours of data, since has strong check, not earlier than the current 1 hours to 59 since```
+* Return a historical data:
+```
+```
+{
+    "event_rep":"rep","channel":"market_$base$quote_kline_[1min/5min/15min/30min/60min/1day/1week/1month]","cb_id":"Please Return by the Way You Came",
+    "since":"1506602880",//since Return the latest 300 items by default, return the maximum 1 hour data larger than since when it has value, and since has strong check, not earlier than the current 1 hour.
+    "ts":1506584998239,//Request time
+    "data":[//300 article
         {
-            &quot;id&quot;:12121,//transaction ID
-            &quot;side&quot;:&quot;buy&quot;,//Direction of business buy,sell
-            &quot;price&quot;:32.233,//Unit Price
-            &quot;vol&quot;:232,//Number
-            &quot;amount&quot;:323,//Total
-            &quot;ts&quot;:1506584998239,//Data generation time
-            &quot;ds&quot;:&#39;2017-09-10 23:12:21&#39;
+            "id":1506602880,//Time scale starting value
+            "amount":123.1221,//A turnover
+            "vol":1212.12211,//Trading volume
+            "open":2233.22,//Opening price
+            "close":1221.11,//Closing price
+            "high":22322.22,//Highest price
+            "low":2321.22//Minimum price
         },
         {
-            &quot;id&quot;:12120,//Transaction ID
-            &quot;side&quot;:&quot;buy&quot;,//Direction of business buy,sell
-            &quot;price&quot;:32.233,//Unit Price
-            &quot;vol&quot;:232,//Number
-            &quot;amount&quot;:323,//Total
-            &quot;ts&quot;:1506584998239,//Data generation time
-            &quot;ds&quot;:&#39;2017-09-10 23:12:21&#39;
+            "id":1506602880,//Time scale starting value
+            "amount":123.1221,//A turnover
+            "vol":1212.12211,//Trading volume
+            "open":2233.22,//Opening price
+            "close":1221.11,//Closing price
+            "high":22322.22,//Highest price
+            "low":2321.22//Minimum price
         }
     ]
 }
-}
-</code></li>
-</ul>
+```
 
-<hr>
-<h3 id='request-k-line-history-data'><span id="24">Request-K Line History Data</span></h3>
-<ul>
-<li><p>Increase request parameters endIdx，pageSize（Up to 300, default 300 data）,If endIdx is empty, the last 300 historical data are returned</p></li>
-<li><p>request:
-<code>
-{&quot;event&quot;:&quot;req&quot;,&quot;params&quot;:{&quot;channel&quot;:&quot;market_$base$quote_kline_[1min/5min/15min/30min/60min/1day/1week/1month]&quot;,&quot;cb_id&quot;:&quot;custom&quot;,&quot;since&quot;:&quot;1506602880&quot;}}//since The default is to return the latest 300, a return value greater than since for up to 1 hours of data, since has strong check, not earlier than the current 1 hours to 59 since</code>
-* Return a historical data:
-<code>
-</code>
+
+
+---
+### <span id="25">Request-transaction history data </span>
+
+* request:
+```
+{"event":"req","params":{"channel":"market_$base$quote_trade_ticker","cb_id":"custom","top":200}}
+```
+* Direct return of transaction information:
+```
 {
-&quot;event_rep&quot;:&quot;rep&quot;,&quot;channel&quot;:&quot;market_$base$quote_kline_[1min/5min/15min/30min/60min/1day/1week/1month]&quot;,&quot;cb_id&quot;:&quot;Please Return by the Way You Came&quot;,
-&quot;since&quot;:&quot;1506602880&quot;,//since Return the latest 300 items by default, return the maximum 1 hour data larger than since when it has value, and since has strong check, not earlier than the current 1 hour.
-&quot;ts&quot;:1506584998239,//Request time
-&quot;data&quot;:[//300 article
-    {
-        &quot;id&quot;:1506602880,//Time scale starting value
-        &quot;amount&quot;:123.1221,//A turnover
-        &quot;vol&quot;:1212.12211,//Trading volume
-        &quot;open&quot;:2233.22,//Opening price
-        &quot;close&quot;:1221.11,//Closing price
-        &quot;high&quot;:22322.22,//Highest price
-        &quot;low&quot;:2321.22//Minimum price
-    },
-    {
-        &quot;id&quot;:1506602880,//Time scale starting value
-        &quot;amount&quot;:123.1221,//A turnover
-        &quot;vol&quot;:1212.12211,//Trading volume
-        &quot;open&quot;:2233.22,//Opening price
-        &quot;close&quot;:1221.11,//Closing price
-        &quot;high&quot;:22322.22,//Highest price
-        &quot;low&quot;:2321.22//Minimum price
+    "event_rep":"rep","channel":"market_$base$quote_trade_ticker","cb_id":"Please Return by the Way You Came","ts":1506584998239,"status":"ok",
+    "top":200,//Maximum support 200
+    "data":[
+        {
+            "id":12121,//Transaction ID
+            "side":"buy",//Direction of businessbuy,sell
+            "price":32.233,//Unit Price
+            "vol":232,//Number
+            "amount":323,//Total
+            "ts":1506584998239//Data generation time
+        },
+        {
+            "id":12120,//Transaction ID
+            "side":"buy",//Direction of business buy,sell
+            "price":32.233,//Unit Price
+            "vol":232,//Number
+            "amount":323,//Total
+            "ts":1506584998239,//Data generation time
+            "ds":'2017-09-10 23:12:21'
+        }
+    ]
+}
+```
+
+
+---
+### <span id="26">Request - 24 Market Data on Home Page-</span>
+
+* Request mode:
+```
+{"event":"req","params":{"channel":"review"}}
+```
+* Return an example of data:
+```
+{
+   event_rep: "rep",
+   channel: "review",
+   data: {
+          bchbtc:  {amount: "115.968833484"close: "0.07956"high: "0.086323"low: "0.079251"open: "0.086323"rose: "-0.07834528"vol: "1393.247"}
+          bchusdt: {amount: "416316.164145661", close: "513.56", high: "556.42", low: "510.85", open: "555.71", …}
+          btcusdt: {amount: "999341.34124", close: "6450.18", high: "6486.39", low: "6359.63", open: "6435.79", …}
+   }
+}
+```
+
+---
+## <span id="ws-api-java">ws-api Demo (java) </span>
+
+
+```
+
+package test;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.net.URI;
+import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
+import java.nio.charset.Charset;
+import java.nio.charset.CharsetDecoder;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.zip.GZIPInputStream;
+
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
+
+import org.java_websocket.client.DefaultSSLWebSocketClientFactory;
+import org.java_websocket.client.WebSocketClient;
+import org.java_websocket.drafts.Draft;
+import org.java_websocket.drafts.Draft_17;
+import org.java_websocket.handshake.ServerHandshake;
+
+/**
+ * @author Squid DateTime:November 22, 2018, 9:25:20 PM 
+ * Suggested use websocket client Edition 
+ * <dependency> 
+ * <groupId>org.java-websocket</groupId> 
+ * <artifactId>Java-WebSocket</artifactId> 
+ * <version>1.3.0</version> 
+ * </dependency> 
+ *
+ */
+public class WsTest {
+
+    public static void main(String[] args) {
+        try {
+//wsurl 
+            String url = "wss://ws.Exchange.com/kline-api/ws";
+//Historical data request parameters 
+            String reqParam = "{"event":"req","params":{"channel":"market_btcusdt_trade_ticker","cb_id":"btcusdt","top":150}}";
+//Subscription parameters 
+            String subParam = "{"event":"sub","params":{"channel":"market_btcusdt_trade_ticker","cb_id":"btcusdt","top":150}}";
+
+//Initialization request history data 
+            WebSocketUtils wsc = WebSocketUtils.executeWebSocket(url, reqParam);
+
+//Subscribe to real-time data 
+            wsc.send(subParam);
+
+//Thread does not end, waiting for new messages，www.Exchange.com Generally, a new deal will return in about a minute
+            while (true) {
+                Thread.sleep(1000);
+            }
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-]
-}
-```</p></li>
-</ul>
 
-<hr>
-<h3 id='request-transaction-history-data'><span id="25">Request-transaction history data </span></h3>
-<ul>
-<li>request:
-<code>
-{&quot;event&quot;:&quot;req&quot;,&quot;params&quot;:{&quot;channel&quot;:&quot;market_$base$quote_trade_ticker&quot;,&quot;cb_id&quot;:&quot;custom&quot;,&quot;top&quot;:200}}
-</code></li>
-<li>Direct return of transaction information:
-<code>
-{
-&quot;event_rep&quot;:&quot;rep&quot;,&quot;channel&quot;:&quot;market_$base$quote_trade_ticker&quot;,&quot;cb_id&quot;:&quot;Please Return by the Way You Came&quot;,&quot;ts&quot;:1506584998239,&quot;status&quot;:&quot;ok&quot;,
-&quot;top&quot;:200,//Maximum support 200
-&quot;data&quot;:[
-    {
-        &quot;id&quot;:12121,//Transaction ID
-        &quot;side&quot;:&quot;buy&quot;,//Direction of businessbuy,sell
-        &quot;price&quot;:32.233,//Unit Price
-        &quot;vol&quot;:232,//Number
-        &quot;amount&quot;:323,//Total
-        &quot;ts&quot;:1506584998239//Data generation time
-    },
-    {
-        &quot;id&quot;:12120,//Transaction ID
-        &quot;side&quot;:&quot;buy&quot;,//Direction of business buy,sell
-        &quot;price&quot;:32.233,//Unit Price
-        &quot;vol&quot;:232,//Number
-        &quot;amount&quot;:323,//Total
-        &quot;ts&quot;:1506584998239,//Data generation time
-        &quot;ds&quot;:&#39;2017-09-10 23:12:21&#39;
+    static class WebSocketUtils extends WebSocketClient {
+        private static WebSocketUtils wsclient = null;
+        private String msg = "";
+
+        public WebSocketUtils(URI serverURI) {
+            super(serverURI);
+        }
+
+        public WebSocketUtils(URI serverUri, Draft draft) {
+            super(serverUri, draft);
+        }
+
+        public WebSocketUtils(URI serverUri, Map<String, String> headers, int connecttimeout) {
+            super(serverUri, new Draft_17(), headers, connecttimeout);
+        }
+
+        @Override
+        public void onOpen(ServerHandshake serverHandshake) {
+            System.out.println("Links have been established");
+
+        }
+
+        @Override
+        public void onMessage(String s) {
+            System.out.println("Receive a string message");
+        }
+
+        @Override
+        public void onClose(int i, String s, boolean b) {
+            System.out.println("Link closed");
+        }
+
+        @Override
+        public void onError(Exception e) {
+            System.out.println("Wrong report");
+        }
+
+        @Override
+        public void onMessage(ByteBuffer socketBuffer) {
+            try {
+                String marketStr = byteBufferToString(socketBuffer);
+                String market = uncompress(marketStr).toLowerCase();
+                if (market.contains("ping")) {
+                    System.out.println("Receive messageping："+market);
+                    String tmp = market.replace("ping", "pong");
+                    wsclient.send(market.replace("ping", "pong"));
+                } else {
+                    msg = market;
+                    System.out.println("Receive message："+msg);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        public static Map<String, String> getWebSocketHeaders() throws IOException {
+            Map<String, String> headers = new HashMap<String, String>();
+            return headers;
+        }
+
+        private static void trustAllHosts(WebSocketUtils appClient) {
+            TrustManager[] trustAllCerts = new TrustManager[] { new X509TrustManager() {
+                public java.security.cert.X509Certificate[] getAcceptedIssuers() {
+                    return new java.security.cert.X509Certificate[] {};
+                }
+
+                public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+                }
+
+                public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+                }
+            } };
+
+            try {
+                SSLContext sc = SSLContext.getInstance("TLS");
+                sc.init(null, trustAllCerts, new java.security.SecureRandom());
+                appClient.setWebSocketFactory(new DefaultSSLWebSocketClientFactory(sc));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        public static WebSocketUtils executeWebSocket(String url,String sendMsg) throws Exception {
+            wsclient = new WebSocketUtils(new URI(url), getWebSocketHeaders(), 1000);
+            trustAllHosts(wsclient);
+            wsclient.connectBlocking();
+            wsclient.send(sendMsg);
+            return wsclient;
+        }
+
+        // buffer turn String 
+        public String byteBufferToString(ByteBuffer buffer) {
+            CharBuffer charBuffer = null;
+            try {
+                Charset charset = Charset.forName("ISO-8859-1");
+                CharsetDecoder decoder = charset.newDecoder();
+                charBuffer = decoder.decode(buffer);
+                buffer.flip();
+                return charBuffer.toString();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+                return null;
+            }
+        }
+
+        // decompression 
+        public String uncompress(String str) throws IOException {
+            if (str == null || str.length() == 0) {
+                return str;
+            }
+            ByteArrayOutputStream out = new ByteArrayOutputStream();
+            ByteArrayInputStream in = new ByteArrayInputStream(str.getBytes("ISO-8859-1"));
+            GZIPInputStream gunzip = new GZIPInputStream(in);
+            byte[] buffer = new byte[256];
+            int n;
+            while ((n = gunzip.read(buffer)) >= 0) {
+                out.write(buffer, 0, n);
+            }
+            return out.toString();
+        }
+
     }
-]
 }
-</code></li>
-</ul>
 
-<hr>
-<h3 id='request-24-market-data-on-home-page'><span id="26">Request - 24 Market Data on Home Page-</span></h3>
-<ul>
-<li>Request mode:
-<code>
-{&quot;event&quot;:&quot;req&quot;,&quot;params&quot;:{&quot;channel&quot;:&quot;review&quot;}}
-</code></li>
-<li>Return an example of data:
-<code>
-{
-event_rep: &quot;rep&quot;,
-channel: &quot;review&quot;,
-data: {
-      bchbtc:  {amount: &quot;115.968833484&quot;close: &quot;0.07956&quot;high: &quot;0.086323&quot;low: &quot;0.079251&quot;open: &quot;0.086323&quot;rose: &quot;-0.07834528&quot;vol: &quot;1393.247&quot;}
-      bchusdt: {amount: &quot;416316.164145661&quot;, close: &quot;513.56&quot;, high: &quot;556.42&quot;, low: &quot;510.85&quot;, open: &quot;555.71&quot;, …}
-      btcusdt: {amount: &quot;999341.34124&quot;, close: &quot;6450.18&quot;, high: &quot;6486.39&quot;, low: &quot;6359.63&quot;, open: &quot;6435.79&quot;, …}
-}
-}
-</code></li>
-</ul>
+```
 
-<hr>
-<h2 id='ws-api-demo-java'><span id="ws-api-java">ws-api Demo (java) </span></h2><div class="highlight"><pre class="highlight mosel"><code>
-<span class="k">package</span> <span class="n">test</span><span class="p">;</span>
 
-<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">io</span><span class="p">.</span><span class="n">ByteArrayInputStream</span><span class="p">;</span>
-<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">io</span><span class="p">.</span><span class="n">ByteArrayOutputStream</span><span class="p">;</span>
-<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">io</span><span class="p">.</span><span class="n">IOException</span><span class="p">;</span>
-<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">net</span><span class="p">.</span><span class="n">URI</span><span class="p">;</span>
-<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">nio</span><span class="p">.</span><span class="n">ByteBuffer</span><span class="p">;</span>
-<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">nio</span><span class="p">.</span><span class="n">CharBuffer</span><span class="p">;</span>
-<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">nio</span><span class="p">.</span><span class="n">charset</span><span class="p">.</span><span class="n">Charset</span><span class="p">;</span>
-<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">nio</span><span class="p">.</span><span class="n">charset</span><span class="p">.</span><span class="n">CharsetDecoder</span><span class="p">;</span>
-<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">security</span><span class="p">.</span><span class="n">cert</span><span class="p">.</span><span class="n">CertificateException</span><span class="p">;</span>
-<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">security</span><span class="p">.</span><span class="n">cert</span><span class="p">.</span><span class="n">X509Certificate</span><span class="p">;</span>
-<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">util</span><span class="p">.</span><span class="n">HashMap</span><span class="p">;</span>
-<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">util</span><span class="p">.</span><span class="n">Map</span><span class="p">;</span>
-<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">util</span><span class="p">.</span><span class="n">zip</span><span class="p">.</span><span class="n">GZIPInputStream</span><span class="p">;</span>
 
-<span class="n">import</span> <span class="n">javax</span><span class="p">.</span><span class="n">net</span><span class="p">.</span><span class="n">ssl</span><span class="p">.</span><span class="n">SSLContext</span><span class="p">;</span>
-<span class="n">import</span> <span class="n">javax</span><span class="p">.</span><span class="n">net</span><span class="p">.</span><span class="n">ssl</span><span class="p">.</span><span class="n">TrustManager</span><span class="p">;</span>
-<span class="n">import</span> <span class="n">javax</span><span class="p">.</span><span class="n">net</span><span class="p">.</span><span class="n">ssl</span><span class="p">.</span><span class="n">X509TrustManager</span><span class="p">;</span>
 
-<span class="n">import</span> <span class="n">org</span><span class="p">.</span><span class="n">java_websocket</span><span class="p">.</span><span class="n">client</span><span class="p">.</span><span class="n">DefaultSSLWebSocketClientFactory</span><span class="p">;</span>
-<span class="n">import</span> <span class="n">org</span><span class="p">.</span><span class="n">java_websocket</span><span class="p">.</span><span class="n">client</span><span class="p">.</span><span class="n">WebSocketClient</span><span class="p">;</span>
-<span class="n">import</span> <span class="n">org</span><span class="p">.</span><span class="n">java_websocket</span><span class="p">.</span><span class="n">drafts</span><span class="p">.</span><span class="n">Draft</span><span class="p">;</span>
-<span class="n">import</span> <span class="n">org</span><span class="p">.</span><span class="n">java_websocket</span><span class="p">.</span><span class="n">drafts</span><span class="p">.</span><span class="n">Draft_17</span><span class="p">;</span>
-<span class="n">import</span> <span class="n">org</span><span class="p">.</span><span class="n">java_websocket</span><span class="p">.</span><span class="n">handshake</span><span class="p">.</span><span class="n">ServerHandshake</span><span class="p">;</span>
 
-<span class="p">/**</span>
- <span class="p">*</span> <span class="p">@</span><span class="n">author</span> <span class="n">Squid</span> <span class="n">DateTime</span><span class="p">:</span><span class="n">November</span> <span class="m">22</span><span class="p">,</span> <span class="m">2018</span><span class="p">,</span> <span class="m">9</span><span class="p">:</span><span class="m">25</span><span class="p">:</span><span class="m">20</span> <span class="n">PM</span> 
- <span class="p">*</span> <span class="n">Suggested</span> <span class="n">use</span> <span class="n">websocket</span> <span class="n">client</span> <span class="n">Edition</span> 
- <span class="p">*</span> <span class="p">&lt;</span><span class="n">dependency</span><span class="p">&gt;</span> 
- <span class="p">*</span> <span class="p">&lt;</span><span class="n">groupId</span><span class="p">&gt;</span><span class="n">org</span><span class="p">.</span><span class="n">java</span><span class="p">-</span><span class="n">websocket</span><span class="p">&lt;/</span><span class="n">groupId</span><span class="p">&gt;</span> 
- <span class="p">*</span> <span class="p">&lt;</span><span class="n">artifactId</span><span class="p">&gt;</span><span class="n">Java</span><span class="p">-</span><span class="n">WebSocket</span><span class="p">&lt;/</span><span class="n">artifactId</span><span class="p">&gt;</span> 
- <span class="p">*</span> <span class="p">&lt;</span><span class="k">version</span><span class="p">&gt;</span><span class="m">1.3.0</span><span class="p">&lt;/</span><span class="k">version</span><span class="p">&gt;</span> 
- <span class="p">*</span> <span class="p">&lt;/</span><span class="n">dependency</span><span class="p">&gt;</span> 
- <span class="p">*</span>
- <span class="p">*/</span>
-<span class="k">public</span> <span class="n">class</span> <span class="n">WsTest</span> <span class="p">{</span>
+> To authorize, use this code:
 
-    <span class="k">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="k">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">try</span> <span class="p">{</span>
-<span class="p">//</span><span class="n">wsurl</span> 
-            <span class="k">String</span> <span class="n">url</span> <span class="p">=</span> <span class="s2">"wss://ws.Exchange.com/kline-api/ws"</span><span class="p">;</span>
-<span class="p">//</span><span class="n">Historical</span> <span class="n">data</span> <span class="n">request</span> <span class="k">parameters</span> 
-            <span class="k">String</span> <span class="n">reqParam</span> <span class="p">=</span> <span class="s2">"{"</span><span class="n">event</span><span class="s2">":"</span><span class="n">req</span><span class="s2">","</span><span class="n">params</span><span class="s2">":{"</span><span class="n">channel</span><span class="s2">":"</span><span class="n">market_btcusdt_trade_ticker</span><span class="s2">","</span><span class="n">cb_id</span><span class="s2">":"</span><span class="n">btcusdt</span><span class="s2">","</span><span class="n">top</span><span class="s2">":150}}"</span><span class="p">;</span>
-<span class="p">//</span><span class="n">Subscription</span> <span class="k">parameters</span> 
-            <span class="k">String</span> <span class="n">subParam</span> <span class="p">=</span> <span class="s2">"{"</span><span class="n">event</span><span class="s2">":"</span><span class="n">sub</span><span class="s2">","</span><span class="n">params</span><span class="s2">":{"</span><span class="n">channel</span><span class="s2">":"</span><span class="n">market_btcusdt_trade_ticker</span><span class="s2">","</span><span class="n">cb_id</span><span class="s2">":"</span><span class="n">btcusdt</span><span class="s2">","</span><span class="n">top</span><span class="s2">":150}}"</span><span class="p">;</span>
+```ruby
+require 'kittn'
 
-<span class="p">//</span><span class="n">Initialization</span> <span class="n">request</span> <span class="n">history</span> <span class="n">data</span> 
-            <span class="n">WebSocketUtils</span> <span class="n">wsc</span> <span class="p">=</span> <span class="n">WebSocketUtils</span><span class="p">.</span><span class="n">executeWebSocket</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">reqParam</span><span class="p">);</span>
+api = Kittn::APIClient.authorize!('meowmeowmeow')
+```
 
-<span class="p">//</span><span class="n">Subscribe</span> <span class="k">to</span> <span class="k">real</span><span class="p">-</span><span class="n">time</span> <span class="n">data</span> 
-            <span class="n">wsc</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="n">subParam</span><span class="p">);</span>
+```python
+import kittn
 
-<span class="p">//</span><span class="n">Thread</span> <span class="n">does</span> <span class="k">not</span> <span class="k">end</span><span class="p">,</span> <span class="n">waiting</span> <span class="n">for</span> <span class="n">new</span> <span class="n">messages</span><span class="err">，</span><span class="n">www</span><span class="p">.</span><span class="n">Exchange</span><span class="p">.</span><span class="n">com</span> <span class="n">Generally</span><span class="p">,</span> <span class="n">a</span> <span class="n">new</span> <span class="n">deal</span> <span class="n">will</span> <span class="n">return</span> <span class="k">in</span> <span class="n">about</span> <span class="n">a</span> <span class="n">minute</span>
-            <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">Thread</span><span class="p">.</span><span class="nf">sleep</span><span class="p">(</span><span class="m">1000</span><span class="p">);</span>
-            <span class="p">}</span>
+api = kittn.authorize('meowmeowmeow')
+```
 
-        <span class="p">}</span><span class="n">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">e</span><span class="p">.</span><span class="n">printStackTrace</span><span class="p">();</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+```shell
+# With shell, you can just pass the correct header with each request
+curl "api_endpoint_here"
+  -H "Authorization: meowmeowmeow"
+```
 
-    <span class="n">static</span> <span class="n">class</span> <span class="n">WebSocketUtils</span> <span class="n">extends</span> <span class="n">WebSocketClient</span> <span class="p">{</span>
-        <span class="n">private</span> <span class="n">static</span> <span class="n">WebSocketUtils</span> <span class="n">wsclient</span> <span class="p">=</span> <span class="n">null</span><span class="p">;</span>
-        <span class="n">private</span> <span class="k">String</span> <span class="n">msg</span> <span class="p">=</span> <span class="s2">""</span><span class="p">;</span>
+```javascript
+const kittn = require('kittn');
 
-        <span class="k">public</span> <span class="n">WebSocketUtils</span><span class="p">(</span><span class="n">URI</span> <span class="n">serverURI</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">super</span><span class="p">(</span><span class="n">serverURI</span><span class="p">);</span>
-        <span class="p">}</span>
+let api = kittn.authorize('meowmeowmeow');
+```
 
-        <span class="k">public</span> <span class="n">WebSocketUtils</span><span class="p">(</span><span class="n">URI</span> <span class="n">serverUri</span><span class="p">,</span> <span class="n">Draft</span> <span class="n">draft</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">super</span><span class="p">(</span><span class="n">serverUri</span><span class="p">,</span> <span class="n">draft</span><span class="p">);</span>
-        <span class="p">}</span>
+> Make sure to replace `meowmeowmeow` with your API key.
 
-        <span class="k">public</span> <span class="n">WebSocketUtils</span><span class="p">(</span><span class="n">URI</span> <span class="n">serverUri</span><span class="p">,</span> <span class="n">Map</span><span class="p">&lt;</span><span class="k">String</span><span class="p">,</span> <span class="k">String</span><span class="p">&gt;</span> <span class="n">headers</span><span class="p">,</span> <span class="n">int</span> <span class="n">connecttimeout</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">super</span><span class="p">(</span><span class="n">serverUri</span><span class="p">,</span> <span class="n">new</span> <span class="n">Draft_17</span><span class="p">(),</span> <span class="n">headers</span><span class="p">,</span> <span class="n">connecttimeout</span><span class="p">);</span>
-        <span class="p">}</span>
+Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
 
-        <span class="p">@</span><span class="n">Override</span>
-        <span class="k">public</span> <span class="n">void</span> <span class="n">onOpen</span><span class="p">(</span><span class="n">ServerHandshake</span> <span class="n">serverHandshake</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nf">System</span><span class="p">.</span><span class="n">out</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s2">"Links have been established"</span><span class="p">);</span>
+Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
-        <span class="p">}</span>
-
-        <span class="p">@</span><span class="n">Override</span>
-        <span class="k">public</span> <span class="n">void</span> <span class="n">onMessage</span><span class="p">(</span><span class="k">String</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nf">System</span><span class="p">.</span><span class="n">out</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s2">"Receive a string message"</span><span class="p">);</span>
-        <span class="p">}</span>
-
-        <span class="p">@</span><span class="n">Override</span>
-        <span class="k">public</span> <span class="n">void</span> <span class="n">onClose</span><span class="p">(</span><span class="n">int</span> <span class="n">i</span><span class="p">,</span> <span class="k">String</span> <span class="n">s</span><span class="p">,</span> <span class="k">boolean</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nf">System</span><span class="p">.</span><span class="n">out</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s2">"Link closed"</span><span class="p">);</span>
-        <span class="p">}</span>
-
-        <span class="p">@</span><span class="n">Override</span>
-        <span class="k">public</span> <span class="n">void</span> <span class="n">onError</span><span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nf">System</span><span class="p">.</span><span class="n">out</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s2">"Wrong report"</span><span class="p">);</span>
-        <span class="p">}</span>
-
-        <span class="p">@</span><span class="n">Override</span>
-        <span class="k">public</span> <span class="n">void</span> <span class="n">onMessage</span><span class="p">(</span><span class="n">ByteBuffer</span> <span class="n">socketBuffer</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">try</span> <span class="p">{</span>
-                <span class="k">String</span> <span class="n">marketStr</span> <span class="p">=</span> <span class="n">byteBufferToString</span><span class="p">(</span><span class="n">socketBuffer</span><span class="p">);</span>
-                <span class="k">String</span> <span class="n">market</span> <span class="p">=</span> <span class="n">uncompress</span><span class="p">(</span><span class="n">marketStr</span><span class="p">).</span><span class="n">toLowerCase</span><span class="p">();</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">market</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">"ping"</span><span class="p">))</span> <span class="p">{</span>
-                    <span class="nf">System</span><span class="p">.</span><span class="n">out</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s2">"Receive messageping："</span><span class="p">+</span><span class="n">market</span><span class="p">);</span>
-                    <span class="k">String</span> <span class="n">tmp</span> <span class="p">=</span> <span class="n">market</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"ping"</span><span class="p">,</span> <span class="s2">"pong"</span><span class="p">);</span>
-                    <span class="n">wsclient</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="n">market</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"ping"</span><span class="p">,</span> <span class="s2">"pong"</span><span class="p">));</span>
-                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                    <span class="n">msg</span> <span class="p">=</span> <span class="n">market</span><span class="p">;</span>
-                    <span class="nf">System</span><span class="p">.</span><span class="n">out</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s2">"Receive message："</span><span class="p">+</span><span class="n">msg</span><span class="p">);</span>
-                <span class="p">}</span>
-            <span class="p">}</span> <span class="n">catch</span> <span class="p">(</span><span class="n">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">e</span><span class="p">.</span><span class="n">printStackTrace</span><span class="p">();</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-
-        <span class="k">public</span> <span class="n">static</span> <span class="n">Map</span><span class="p">&lt;</span><span class="k">String</span><span class="p">,</span> <span class="k">String</span><span class="p">&gt;</span> <span class="n">getWebSocketHeaders</span><span class="p">()</span> <span class="n">throws</span> <span class="n">IOException</span> <span class="p">{</span>
-            <span class="n">Map</span><span class="p">&lt;</span><span class="k">String</span><span class="p">,</span> <span class="k">String</span><span class="p">&gt;</span> <span class="n">headers</span> <span class="p">=</span> <span class="n">new</span> <span class="n">HashMap</span><span class="p">&lt;</span><span class="k">String</span><span class="p">,</span> <span class="k">String</span><span class="p">&gt;();</span>
-            <span class="n">return</span> <span class="n">headers</span><span class="p">;</span>
-        <span class="p">}</span>
-
-        <span class="n">private</span> <span class="n">static</span> <span class="n">void</span> <span class="n">trustAllHosts</span><span class="p">(</span><span class="n">WebSocketUtils</span> <span class="n">appClient</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">TrustManager</span><span class="p">[]</span> <span class="n">trustAllCerts</span> <span class="p">=</span> <span class="n">new</span> <span class="n">TrustManager</span><span class="p">[]</span> <span class="p">{</span> <span class="n">new</span> <span class="n">X509TrustManager</span><span class="p">()</span> <span class="p">{</span>
-                <span class="k">public</span> <span class="n">java</span><span class="p">.</span><span class="n">security</span><span class="p">.</span><span class="n">cert</span><span class="p">.</span><span class="n">X509Certificate</span><span class="p">[]</span> <span class="n">getAcceptedIssuers</span><span class="p">()</span> <span class="p">{</span>
-                    <span class="n">return</span> <span class="n">new</span> <span class="n">java</span><span class="p">.</span><span class="n">security</span><span class="p">.</span><span class="n">cert</span><span class="p">.</span><span class="n">X509Certificate</span><span class="p">[]</span> <span class="p">{};</span>
-                <span class="p">}</span>
-
-                <span class="k">public</span> <span class="n">void</span> <span class="n">checkClientTrusted</span><span class="p">(</span><span class="n">X509Certificate</span><span class="p">[]</span> <span class="n">chain</span><span class="p">,</span> <span class="k">String</span> <span class="n">authType</span><span class="p">)</span> <span class="n">throws</span> <span class="n">CertificateException</span> <span class="p">{</span>
-                <span class="p">}</span>
-
-                <span class="k">public</span> <span class="n">void</span> <span class="n">checkServerTrusted</span><span class="p">(</span><span class="n">X509Certificate</span><span class="p">[]</span> <span class="n">chain</span><span class="p">,</span> <span class="k">String</span> <span class="n">authType</span><span class="p">)</span> <span class="n">throws</span> <span class="n">CertificateException</span> <span class="p">{</span>
-                <span class="p">}</span>
-            <span class="p">}</span> <span class="p">};</span>
-
-            <span class="n">try</span> <span class="p">{</span>
-                <span class="n">SSLContext</span> <span class="n">sc</span> <span class="p">=</span> <span class="n">SSLContext</span><span class="p">.</span><span class="n">getInstance</span><span class="p">(</span><span class="s2">"TLS"</span><span class="p">);</span>
-                <span class="n">sc</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="n">null</span><span class="p">,</span> <span class="n">trustAllCerts</span><span class="p">,</span> <span class="n">new</span> <span class="n">java</span><span class="p">.</span><span class="n">security</span><span class="p">.</span><span class="n">SecureRandom</span><span class="p">());</span>
-                <span class="n">appClient</span><span class="p">.</span><span class="n">setWebSocketFactory</span><span class="p">(</span><span class="n">new</span> <span class="n">DefaultSSLWebSocketClientFactory</span><span class="p">(</span><span class="n">sc</span><span class="p">));</span>
-            <span class="p">}</span> <span class="n">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">e</span><span class="p">.</span><span class="n">printStackTrace</span><span class="p">();</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-
-        <span class="k">public</span> <span class="n">static</span> <span class="n">WebSocketUtils</span> <span class="n">executeWebSocket</span><span class="p">(</span><span class="k">String</span> <span class="n">url</span><span class="p">,</span><span class="k">String</span> <span class="n">sendMsg</span><span class="p">)</span> <span class="n">throws</span> <span class="n">Exception</span> <span class="p">{</span>
-            <span class="n">wsclient</span> <span class="p">=</span> <span class="n">new</span> <span class="n">WebSocketUtils</span><span class="p">(</span><span class="n">new</span> <span class="n">URI</span><span class="p">(</span><span class="n">url</span><span class="p">),</span> <span class="n">getWebSocketHeaders</span><span class="p">(),</span> <span class="m">1000</span><span class="p">);</span>
-            <span class="n">trustAllHosts</span><span class="p">(</span><span class="n">wsclient</span><span class="p">);</span>
-            <span class="n">wsclient</span><span class="p">.</span><span class="n">connectBlocking</span><span class="p">();</span>
-            <span class="n">wsclient</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="n">sendMsg</span><span class="p">);</span>
-            <span class="n">return</span> <span class="n">wsclient</span><span class="p">;</span>
-        <span class="p">}</span>
-
-        <span class="p">//</span> <span class="n">buffer</span> <span class="n">turn</span> <span class="k">String</span> 
-        <span class="k">public</span> <span class="k">String</span> <span class="n">byteBufferToString</span><span class="p">(</span><span class="n">ByteBuffer</span> <span class="n">buffer</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">CharBuffer</span> <span class="n">charBuffer</span> <span class="p">=</span> <span class="n">null</span><span class="p">;</span>
-            <span class="n">try</span> <span class="p">{</span>
-                <span class="n">Charset</span> <span class="n">charset</span> <span class="p">=</span> <span class="n">Charset</span><span class="p">.</span><span class="n">forName</span><span class="p">(</span><span class="s2">"ISO-8859-1"</span><span class="p">);</span>
-                <span class="n">CharsetDecoder</span> <span class="n">decoder</span> <span class="p">=</span> <span class="n">charset</span><span class="p">.</span><span class="n">newDecoder</span><span class="p">();</span>
-                <span class="n">charBuffer</span> <span class="p">=</span> <span class="n">decoder</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="n">buffer</span><span class="p">);</span>
-                <span class="n">buffer</span><span class="p">.</span><span class="n">flip</span><span class="p">();</span>
-                <span class="n">return</span> <span class="n">charBuffer</span><span class="p">.</span><span class="n">toString</span><span class="p">();</span>
-            <span class="p">}</span> <span class="n">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">ex</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">ex</span><span class="p">.</span><span class="n">printStackTrace</span><span class="p">();</span>
-                <span class="n">return</span> <span class="n">null</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-
-        <span class="p">//</span> <span class="n">decompression</span> 
-        <span class="k">public</span> <span class="k">String</span> <span class="n">uncompress</span><span class="p">(</span><span class="k">String</span> <span class="n">str</span><span class="p">)</span> <span class="n">throws</span> <span class="n">IOException</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">str</span> <span class="p">==</span> <span class="n">null</span> <span class="p">||</span> <span class="n">str</span><span class="p">.</span><span class="n">length</span><span class="p">()</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">return</span> <span class="n">str</span><span class="p">;</span>
-            <span class="p">}</span>
-            <span class="n">ByteArrayOutputStream</span> <span class="n">out</span> <span class="p">=</span> <span class="n">new</span> <span class="n">ByteArrayOutputStream</span><span class="p">();</span>
-            <span class="n">ByteArrayInputStream</span> <span class="k">in</span> <span class="p">=</span> <span class="n">new</span> <span class="n">ByteArrayInputStream</span><span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="n">getBytes</span><span class="p">(</span><span class="s2">"ISO-8859-1"</span><span class="p">));</span>
-            <span class="n">GZIPInputStream</span> <span class="n">gunzip</span> <span class="p">=</span> <span class="n">new</span> <span class="n">GZIPInputStream</span><span class="p">(</span><span class="k">in</span><span class="p">);</span>
-            <span class="n">byte</span><span class="p">[]</span> <span class="n">buffer</span> <span class="p">=</span> <span class="n">new</span> <span class="n">byte</span><span class="p">[</span><span class="m">256</span><span class="p">];</span>
-            <span class="n">int</span> <span class="n">n</span><span class="p">;</span>
-            <span class="k">while</span> <span class="p">((</span><span class="n">n</span> <span class="p">=</span> <span class="n">gunzip</span><span class="p">.</span><span class="nb">read</span><span class="p">(</span><span class="n">buffer</span><span class="p">))</span> <span class="p">&gt;=</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">out</span><span class="p">.</span><span class="nb">write</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
-            <span class="p">}</span>
-            <span class="n">return</span> <span class="n">out</span><span class="p">.</span><span class="n">toString</span><span class="p">();</span>
-        <span class="p">}</span>
-
-    <span class="p">}</span>
-<span class="p">}</span>
-
-</code></pre></div>
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
-</blockquote>
-
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code>Authorization: meowmeowmeow</code></p>
+`Authorization: meowmeowmeow`
 
 <aside class="notice">
 You must replace <code>meowmeowmeow</code> with your personal API key.
