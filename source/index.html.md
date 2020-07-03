@@ -70,9 +70,25 @@ time = 12312312312137
 secret_key = 789654
 sign = md5(api_key1234567time12312312312137789654)
 
-## Request Process
+## <span id="a6">Request Process</span>
 
-The root URL for REST access：`https://api.Exchange.com` 
+The root URL for REST access：``` https://api.Exchange.com ```
+
+###  <span id="a7">Request</span>
+All requests are based on Https protocol, contentType in the request header must be uniformly set as: ‘application/x-www-form-urlencoded’.
+
+**Request Process Descriptions**
+
+1、Request parameter: parameter encapsulation based on the port request.
+
+2、Submitting request parameter: submit the encapsulated parameter request to the server via POST/GET/PUT/DELETE or other methods.
+
+3、Server response: the server will first perform a security validation, then send back the requested data to the client in JSON format.
+
+4、Data processing: processing server response data.
+
+**Success**
+
 
 
 
