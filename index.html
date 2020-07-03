@@ -2463,14 +2463,6 @@
 <p><code>
 {&quot;event_rep&quot;:&quot;subed&quot;,&quot;channel&quot;:&quot;market_$base$quote_depth_step[0-2]&quot;,&quot;cb_id&quot;:&quot;Please Return by the Way You Came&quot;,&quot;asks&quot;:150,&quot;bids&quot;:150,&quot;ts&quot;:1506584998239,&quot;status&quot;:&quot;ok&quot;}
 </code></p>
-
-<aside class="notice">
-    Note: The first successful subscription will immediately return a full amount of data, and the server will regularly push a full amount of data to the front-end to avoid data problems
-</aside>
-
-<ul>
-<li>Full quantity: the front end directly replaces the original disk outlet</li>
-</ul>
 <div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="p">{</span>
     <span class="s2">"channel"</span><span class="ss">:"market_$base$quote_depth_step[0-2]"</span><span class="p">,</span><span class="sr">//</span><span class="vg">$base$quoteExpressbtckrwetc</span><span class="p">.</span><span class="nf">,</span><span class="no">Depth</span> <span class="n">has</span> <span class="n">three</span> <span class="n">dimensions</span><span class="err">，</span><span class="mi">0</span><span class="err">、</span><span class="mi">1</span><span class="err">、</span><span class="mi">2</span>
     <span class="s2">"ts"</span><span class="p">:</span><span class="mi">1506584998239</span><span class="p">,</span><span class="sr">//</span><span class="no">Request</span> <span class="n">time</span>
@@ -2486,12 +2478,12 @@
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<aside class="notice" style="margin-top:20%">
-    Note: The front end of incremental inventory information only needs to replace the quantity corresponding to the price， volume=Delete at 0 o'clock， priceWith the original opening of a price segment price Equal-time updatevolume,  Direct addition of new price
+<aside class="notice">
+    Note: The first successful subscription will immediately return a full amount of data, and the server will regularly push a full amount of data to the front-end to avoid data problems
 </aside>
 
 <ul>
-<li>Direct addition of new price</li>
+<li>Full quantity: the front end directly replaces the original disk outlet</li>
 </ul>
 <div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="p">{</span>
     <span class="s2">"channel"</span><span class="ss">:"market_$base$quote_depth_step[0-2]"</span><span class="p">,</span><span class="sr">//</span><span class="vg">$base$quoteExpressbtckrwetc</span><span class="p">.</span><span class="nf">,</span><span class="no">Depth</span> <span class="n">has</span> <span class="mi">3</span> <span class="n">dimensions</span><span class="err">，</span><span class="mi">0</span><span class="err">、</span><span class="mi">1</span><span class="err">、</span><span class="mi">2</span>
@@ -2502,7 +2494,15 @@
         <span class="s2">"volume"</span> <span class="p">:</span> <span class="mf">44.22</span>   <span class="no">Quantity</span> <span class="n">corresponding</span> <span class="n">to</span> <span class="n">price</span> <span class="n">segment</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div><h3 id='subscription-deep-port'><p id="22" style="margin-top:60%">Subscription - Deep Port</p></h3>
+</code></pre></div>
+<aside class="notice" style="margin-top:20%">
+    Note: The front end of incremental inventory information only needs to replace the quantity corresponding to the price， volume=Delete at 0 o'clock， priceWith the original opening of a price segment price Equal-time updatevolume,  Direct addition of new price
+</aside>
+
+<ul>
+<li>Direct addition of new price</li>
+</ul>
+<h3 id='subscription-deep-port'><p id="22" style="margin-top:60%">Subscription - Deep Port</p></h3>
 <ul>
 <li>request:
 <code>
