@@ -2495,88 +2495,96 @@
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<aside class="notice" style="margin-top:20%">
+<aside class="notice" style="margin-top:15%">
     Note: The front end of incremental inventory information only needs to replace the quantity corresponding to the price， volume=Delete at 0 o'clock， priceWith the original opening of a price segment price Equal-time updatevolume,  Direct addition of new price
 </aside>
 
 <ul>
 <li>Direct addition of new price</li>
 </ul>
-<h3 id='subscription-deep-port'><p id="22" style="margin-top:60%">Subscription - Deep Port</p></h3>
+<h3 id='subscription-deep-port'><p id="22" style="margin-top:20%">Subscription - Deep Port</p></h3>
 <ul>
-<li>request:
-<code>
+<li>request:</li>
+</ul>
+
+<p><code>
 {&quot;event&quot;:&quot;sub&quot;,&quot;params&quot;:{&quot;channel&quot;:&quot;market_$base$quote_depth_step[0-2]&quot;,&quot;cb_id&quot;:&quot;custom&quot;,&quot;asks&quot;:150,&quot;bids&quot;:150}}
-</code></li>
-<li>Return to subscription status once:
-<code>
-{&quot;event_rep&quot;:&quot;subed&quot;,&quot;channel&quot;:&quot;market_$base$quote_depth_step[0-2]&quot;,&quot;cb_id&quot;:&quot;Please Return by the Way You Came&quot;,&quot;asks&quot;:150,&quot;bids&quot;:150,&quot;ts&quot;:1506584998239,&quot;status&quot;:&quot;ok&quot;}
-</code></li>
-<li>Continue to return subscription messages:
-<code>
-{
-&quot;channel&quot;:&quot;market_$base$quote_depth_step[0-2]&quot;,//$base$quoteRepresents btckrw, etc.,Depth has 3 dimensions，0、1、2
-&quot;ts&quot;:1506584998239,//Request time
-&quot;tick&quot;:{
-    &quot;asks&quot;:[//Selling
-        [22112.22,0.9332],
-        [22112.21,0.2]
-    ],
-    &quot;buys&quot;:[//Bid
-        [22111.22,0.9332],
-        [22111.21,0.2]
-    ]
-}
-}
-</code></li>
-</ul>
+</code></p>
 
-<hr>
-<h3 id='subscription-real-time-transaction-information'><span id="23">Subscription-Real-time Transaction Information </span></h3>
 <ul>
-<li>request:
-<code>
-{&quot;event&quot;:&quot;sub&quot;,&quot;params&quot;:{&quot;channel&quot;:&quot;market_$base$quote_trade_ticker&quot;,&quot;cb_id&quot;:&quot;custom&quot;}}
-</code></li>
-<li>Return to subscription status once:
-<code>
-{&quot;event_rep&quot;:&quot;subed&quot;,&quot;channel&quot;:&quot;market_$base$quote_trade_ticker&quot;,&quot;cb_id&quot;:&quot;Please Return by the Way You Came&quot;,&quot;ts&quot;:1506584998239,&quot;status&quot;:&quot;ok&quot;}
-</code></li>
-<li>Continue to return subscription messages:
-<code>
-{
-&quot;channel&quot;:&quot;market_$base$quote_trade_ticker&quot;,//Subscription transactions versus market$base$quoteExpressbtckrwetc.
-&quot;ts&quot;:1506584998239,//Request time
-&quot;tick&quot;:{
-    &quot;id&quot;:12121,//dataThe biggest deal ID
-    &quot;ts&quot;:1506584998239,//dataThe biggest deal
-    &quot;data&quot;:[
-        {
-            &quot;id&quot;:12121,//transaction ID
-            &quot;side&quot;:&quot;buy&quot;,//Direction of business buy,sell
-            &quot;price&quot;:32.233,//Unit Price
-            &quot;vol&quot;:232,//Number
-            &quot;amount&quot;:323,//Total
-            &quot;ts&quot;:1506584998239,//Data generation time
-            &quot;ds&quot;:&#39;2017-09-10 23:12:21&#39;
-        },
-        {
-            &quot;id&quot;:12120,//Transaction ID
-            &quot;side&quot;:&quot;buy&quot;,//Direction of business buy,sell
-            &quot;price&quot;:32.233,//Unit Price
-            &quot;vol&quot;:232,//Number
-            &quot;amount&quot;:323,//Total
-            &quot;ts&quot;:1506584998239,//Data generation time
-            &quot;ds&quot;:&#39;2017-09-10 23:12:21&#39;
-        }
-    ]
-}
-}
-</code></li>
+<li>Return to subscription status once:</li>
 </ul>
 
-<hr>
-<h3 id='request-k-line-history-data'><span id="24">Request-K Line History Data</span></h3>
+<p><code>
+{&quot;event_rep&quot;:&quot;subed&quot;,&quot;channel&quot;:&quot;market_$base$quote_depth_step[0-2]&quot;,&quot;cb_id&quot;:&quot;Please Return by the Way You Came&quot;,&quot;asks&quot;:150,&quot;bids&quot;:150,&quot;ts&quot;:1506584998239,&quot;status&quot;:&quot;ok&quot;}
+</code></p>
+
+<ul>
+<li>Continue to return subscription messages:</li>
+</ul>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="p">{</span>
+    <span class="s2">"channel"</span><span class="ss">:"market_$base$quote_depth_step[0-2]"</span><span class="p">,</span><span class="sr">//</span><span class="vg">$base$quoteRepresents</span> <span class="n">btckrw</span><span class="p">,</span> <span class="n">etc</span><span class="p">.</span><span class="nf">,</span><span class="no">Depth</span> <span class="n">has</span> <span class="mi">3</span> <span class="n">dimensions</span><span class="err">，</span><span class="mi">0</span><span class="err">、</span><span class="mi">1</span><span class="err">、</span><span class="mi">2</span>
+    <span class="s2">"ts"</span><span class="p">:</span><span class="mi">1506584998239</span><span class="p">,</span><span class="sr">//</span><span class="no">Request</span> <span class="n">time</span>
+    <span class="s2">"tick"</span><span class="p">:{</span>
+        <span class="s2">"asks"</span><span class="p">:[</span><span class="sr">//</span><span class="no">Selling</span>
+            <span class="p">[</span><span class="mf">22112.22</span><span class="p">,</span><span class="mf">0.9332</span><span class="p">],</span>
+            <span class="p">[</span><span class="mf">22112.21</span><span class="p">,</span><span class="mf">0.2</span><span class="p">]</span>
+        <span class="p">],</span>
+        <span class="s2">"buys"</span><span class="p">:[</span><span class="sr">//</span><span class="no">Bid</span>
+            <span class="p">[</span><span class="mf">22111.22</span><span class="p">,</span><span class="mf">0.9332</span><span class="p">],</span>
+            <span class="p">[</span><span class="mf">22111.21</span><span class="p">,</span><span class="mf">0.2</span><span class="p">]</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><h3 id='subscription-real-time-transaction-information'><p id="23" style="margin-top:50%">Subscription-Real-time Transaction Information </p></h3>
+<ul>
+<li>request:</li>
+</ul>
+
+<p><code>
+{&quot;event&quot;:&quot;sub&quot;,&quot;params&quot;:{&quot;channel&quot;:&quot;market_$base$quote_trade_ticker&quot;,&quot;cb_id&quot;:&quot;custom&quot;}}
+</code></p>
+
+<ul>
+<li>Return to subscription status once:</li>
+</ul>
+
+<p><code>
+{&quot;event_rep&quot;:&quot;subed&quot;,&quot;channel&quot;:&quot;market_$base$quote_trade_ticker&quot;,&quot;cb_id&quot;:&quot;Please Return by the Way You Came&quot;,&quot;ts&quot;:1506584998239,&quot;status&quot;:&quot;ok&quot;}
+</code></p>
+
+<ul>
+<li>Continue to return subscription messages:</li>
+</ul>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="p">{</span>
+    <span class="s2">"channel"</span><span class="ss">:"market_$base$quote_trade_ticker"</span><span class="p">,</span><span class="sr">//</span><span class="no">Subscription</span> <span class="n">transactions</span> <span class="n">versus</span> <span class="n">market</span><span class="vg">$base$quoteExpressbtckrwetc</span><span class="o">.</span>
+    <span class="s2">"ts"</span><span class="p">:</span><span class="mi">1506584998239</span><span class="p">,</span><span class="sr">//</span><span class="no">Request</span> <span class="n">time</span>
+    <span class="s2">"tick"</span><span class="p">:{</span>
+        <span class="s2">"id"</span><span class="p">:</span><span class="mi">12121</span><span class="p">,</span><span class="sr">//</span><span class="n">dataThe</span> <span class="n">biggest</span> <span class="n">deal</span> <span class="no">ID</span>
+        <span class="s2">"ts"</span><span class="p">:</span><span class="mi">1506584998239</span><span class="p">,</span><span class="sr">//</span><span class="n">dataThe</span> <span class="n">biggest</span> <span class="n">deal</span>
+        <span class="s2">"data"</span><span class="p">:[</span>
+            <span class="p">{</span>
+                <span class="s2">"id"</span><span class="p">:</span><span class="mi">12121</span><span class="p">,</span><span class="sr">//</span><span class="n">transaction</span> <span class="no">ID</span>
+                <span class="s2">"side"</span><span class="ss">:"buy"</span><span class="p">,</span><span class="sr">//</span><span class="no">Direction</span> <span class="n">of</span> <span class="n">business</span> <span class="n">buy</span><span class="p">,</span><span class="n">sell</span>
+                <span class="s2">"price"</span><span class="p">:</span><span class="mf">32.233</span><span class="p">,</span><span class="sr">//</span><span class="no">Unit</span> <span class="no">Price</span>
+                <span class="s2">"vol"</span><span class="p">:</span><span class="mi">232</span><span class="p">,</span><span class="sr">//</span><span class="no">Number</span>
+                <span class="s2">"amount"</span><span class="p">:</span><span class="mi">323</span><span class="p">,</span><span class="sr">//</span><span class="no">Total</span>
+                <span class="s2">"ts"</span><span class="p">:</span><span class="mi">1506584998239</span><span class="p">,</span><span class="sr">//</span><span class="no">Data</span> <span class="n">generation</span> <span class="n">time</span>
+                <span class="s2">"ds"</span><span class="ss">:'2017-09-10 23:12:21'</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">"id"</span><span class="p">:</span><span class="mi">12120</span><span class="p">,</span><span class="sr">//</span><span class="no">Transaction</span> <span class="no">ID</span>
+                <span class="s2">"side"</span><span class="ss">:"buy"</span><span class="p">,</span><span class="sr">//</span><span class="no">Direction</span> <span class="n">of</span> <span class="n">business</span> <span class="n">buy</span><span class="p">,</span><span class="n">sell</span>
+                <span class="s2">"price"</span><span class="p">:</span><span class="mf">32.233</span><span class="p">,</span><span class="sr">//</span><span class="no">Unit</span> <span class="no">Price</span>
+                <span class="s2">"vol"</span><span class="p">:</span><span class="mi">232</span><span class="p">,</span><span class="sr">//</span><span class="no">Number</span>
+                <span class="s2">"amount"</span><span class="p">:</span><span class="mi">323</span><span class="p">,</span><span class="sr">//</span><span class="no">Total</span>
+                <span class="s2">"ts"</span><span class="p">:</span><span class="mi">1506584998239</span><span class="p">,</span><span class="sr">//</span><span class="no">Data</span> <span class="n">generation</span> <span class="n">time</span>
+                <span class="s2">"ds"</span><span class="ss">:'2017-09-10 23:12:21'</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><h3 id='request-k-line-history-data'><p id="24" style="margin-top:60%">Request-K Line History Data</p></h3>
 <ul>
 <li><p>Increase request parameters endIdx，pageSize（Up to 300, default 300 data）,If endIdx is empty, the last 300 historical data are returned</p></li>
 <li><p>request:
