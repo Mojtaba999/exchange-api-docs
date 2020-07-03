@@ -2379,17 +2379,16 @@
 <td>balance_info Asset information in various currencies<br>deposit_list Filling Pipeline Information</td>
 </tr>
 </tbody></table>
-<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="p">{</span><span class="s2">"event"</span><span class="ss">:"sub"</span><span class="p">,</span><span class="s2">"params"</span><span class="p">:{</span><span class="s2">"channel"</span><span class="ss">:"market_$base$quote_kline_[1min/5min/15min/30min/60min/1day/1week/1month]"</span><span class="p">,</span><span class="s2">"cb_id"</span><span class="ss">:"custom"</span><span class="p">}}</span>
-</code></pre></div><h3 id='subscription-k-line-market'><span id="19">Subscription - K Line Market</span></h3>
+<h3 id='subscription-k-line-market'><span id="19">Subscription - K Line Market</span></h3>
 <ul>
-<li>request:</li>
+<li><p>request:
+<code>ruby
+{&quot;event&quot;:&quot;sub&quot;,&quot;params&quot;:{&quot;channel&quot;:&quot;market_$base$quote_kline_[1min/5min/15min/30min/60min/1day/1week/1month]&quot;,&quot;cb_id&quot;:&quot;custom&quot;}}
+</code></p></li>
+<li><p>Return to subscription status once:</p></li>
 </ul>
 <div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="p">{</span><span class="s2">"event_rep"</span><span class="ss">:"subed"</span><span class="p">,</span><span class="s2">"channel"</span><span class="ss">:"market_$base$quote_kline_[1min/5min/15min/30min/60min/1day/1week/1month]"</span><span class="p">,</span><span class="s2">"cb_id"</span><span class="ss">:"Please Return by the Way You Came"</span><span class="p">,</span><span class="s2">"ts"</span><span class="p">:</span><span class="mi">1506584998239</span><span class="p">,</span><span class="s2">"status"</span><span class="ss">:"ok"</span><span class="p">}</span>
-</code></pre></div>
-<ul>
-<li>Return to subscription status once:</li>
-</ul>
-<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="p">{</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="p">{</span>
     <span class="s2">"channel"</span><span class="ss">:"market_$base$quote_kline_[1min/5min/15min/30min/60min/1day/1week/1month]"</span><span class="p">,</span><span class="sr">//</span><span class="no">Subscription</span> <span class="n">transactions</span> <span class="n">versus</span> <span class="n">market</span><span class="vg">$base$quoteExpressbtckrwetc</span><span class="o">.</span>
 
     <span class="s2">"ts"</span><span class="p">:</span><span class="mi">1506584998239</span><span class="p">,</span><span class="sr">//</span><span class="no">Request</span> <span class="n">time</span>
