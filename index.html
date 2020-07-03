@@ -2413,36 +2413,43 @@
 </ul>
 <h3 id='subscription-market-quotations-in-the-last-24-hours'><p id="20" style="margin-top:60%">Subscription - market quotations in the last 24 hours</p></h3>
 <ul>
-<li>request:
-<code>
-{&quot;event&quot;:&quot;sub&quot;,&quot;params&quot;:{&quot;channel&quot;:&quot;market_$base$quote_ticker&quot;,&quot;cb_id&quot;:&quot;custom&quot;}}
-</code></li>
-<li>Return to subscription status once:
-```
-{&quot;event_rep&quot;:&quot;subed&quot;,&quot;channel&quot;:&quot;market_$base$quote_ticker&quot;,&quot;cb_id&quot;:&quot;Please Return by the Way You Came&quot;,&quot;ts&quot;:1506584998239,&quot;status&quot;:&quot;ok&quot;,&quot;lower_frame&quot;:&quot;0&quot;} // lower_frame: 0 No coin pair off the shelf、 1 Coin pair</li>
+<li>request:</li>
 </ul>
-<div class="highlight"><pre class="highlight plaintext"><code>* Continue to return subscription messages:
+
+<p><code>
+{&quot;event&quot;:&quot;sub&quot;,&quot;params&quot;:{&quot;channel&quot;:&quot;market_$base$quote_ticker&quot;,&quot;cb_id&quot;:&quot;custom&quot;}}
+</code></p>
+
+<ul>
+<li>Return to subscription status once:</li>
+</ul>
+
+<p><code>
+{&quot;event_rep&quot;:&quot;subed&quot;,&quot;channel&quot;:&quot;market_$base$quote_ticker&quot;,&quot;cb_id&quot;:&quot;Please Return by the Way You Came&quot;,&quot;ts&quot;:1506584998239,&quot;status&quot;:&quot;ok&quot;,&quot;lower_frame&quot;:&quot;0&quot;} // lower_frame: 0 No coin pair off the shelf、 1 Coin pair
+</code></p>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="p">{</span>
+    <span class="s2">"channel"</span><span class="ss">:"market_$base$quote_ticker"</span><span class="p">,</span><span class="sr">//</span><span class="no">Subscription</span> <span class="n">transactions</span> <span class="n">versus</span> <span class="n">market</span><span class="vg">$base$quoteExpress</span> <span class="n">btckrw</span> <span class="n">etc</span><span class="o">.</span>
+    <span class="s2">"ts"</span><span class="p">:</span><span class="mi">1506584998239</span><span class="p">,</span><span class="sr">//</span><span class="no">Request</span> <span class="n">time</span>
+    <span class="s2">"tick"</span><span class="p">:{</span>
+        <span class="s2">"id"</span><span class="p">:</span><span class="mi">1506584998</span><span class="p">,</span><span class="sr">//</span><span class="no">Redundancy</span><span class="p">,</span> <span class="n">no</span> <span class="n">practical</span> <span class="n">significance</span><span class="p">,</span> <span class="n">timestamp</span>
+        <span class="s2">"amount"</span><span class="p">:</span><span class="mf">123.1221</span><span class="p">,</span><span class="sr">//</span><span class="no">A</span> <span class="n">turnover</span>
+        <span class="s2">"vol"</span><span class="p">:</span><span class="mf">1212.12211</span><span class="p">,</span><span class="sr">//</span><span class="no">Trading</span> <span class="n">volume</span>
+        <span class="s2">"open"</span><span class="p">:</span><span class="mf">2233.22</span><span class="p">,</span><span class="sr">//</span><span class="no">Opening</span> <span class="n">price</span>
+        <span class="s2">"close"</span><span class="p">:</span><span class="mf">1221.11</span><span class="p">,</span><span class="sr">//</span><span class="no">Closing</span> <span class="n">price</span>
+        <span class="s2">"high"</span><span class="p">:</span><span class="mf">22322.22</span><span class="p">,</span><span class="sr">//</span><span class="no">Highest</span> <span class="n">price</span>
+        <span class="s2">"low"</span><span class="p">:</span><span class="mf">2321.22</span><span class="p">,</span><span class="sr">//</span><span class="no">Minimum</span> <span class="n">price</span>
+        <span class="s2">"rose"</span><span class="p">:</span><span class="o">-</span><span class="mf">0.2922</span><span class="p">,</span><span class="sr">//</span><span class="no">Gain</span>
+        <span class="s2">"ts"</span><span class="p">:</span><span class="mi">1506584998239</span><span class="p">,</span><span class="sr">//</span><span class="no">Data</span> <span class="n">generation</span> <span class="n">time</span>
+        <span class="s2">"lower_frame"</span><span class="ss">:"0"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>{
-    &quot;channel&quot;:&quot;market_$base$quote_ticker&quot;,//Subscription transactions versus market$base$quoteExpress btckrw etc.
-    &quot;ts&quot;:1506584998239,//Request time
-    &quot;tick&quot;:{
-        &quot;id&quot;:1506584998,//Redundancy, no practical significance, timestamp
-        &quot;amount&quot;:123.1221,//A turnover
-        &quot;vol&quot;:1212.12211,//Trading volume
-        &quot;open&quot;:2233.22,//Opening price
-        &quot;close&quot;:1221.11,//Closing price
-        &quot;high&quot;:22322.22,//Highest price
-        &quot;low&quot;:2321.22,//Minimum price
-        &quot;rose&quot;:-0.2922,//Gain
-        &quot;ts&quot;:1506584998239,//Data generation time
-        &quot;lower_frame&quot;:&quot;0&quot;
-    }
-}
-```</p>
+<ul>
+<li>Continue to return subscription messages:</li>
+</ul>
 
 <hr>
-<h3 id='subscription-deep-port-high-frequency'><span id="21">Subscription - Deep Port (High Frequency)</span></h3>
+<h3 id='subscription-deep-port-high-frequency'><p id="21" style="margin-top:60%">Subscription - Deep Port (High Frequency)</p></h3>
 <ul>
 <li>request:
 <code>
