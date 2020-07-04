@@ -1,8 +1,7 @@
 ---
 title: API Reference
 
-language_tabs: # must be one of https://git.io/vQNgJ
-  - ruby
+
 
 toc_footers:
   - <a href='https://www.exchange.com/index'>Exchange</a>
