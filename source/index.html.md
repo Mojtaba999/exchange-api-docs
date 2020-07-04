@@ -4,7 +4,7 @@ title: API Reference
 
 
 toc_footers:
-  - <a href='https://www.exchange.com/index'>Exchange</a>
+  - <a href='https://www.darico.io'>Darico</a>
 
 
 search: true
@@ -14,7 +14,7 @@ code_clipboard: true
 
 # Introduction
 
-Welcome to [Exchange](https://www.exchange.com/index) API document for developers.
+Welcome to [Darico](https://www.darico.io) API document for developers.
 
 This file provides the related API application introduction. Open-API includes the port to acquire balance, all orders ,and all transaction record. Ws-API response for the port of K line functions.
 
@@ -32,7 +32,7 @@ Developers are recommended to use REST API to proceed spot trading and withdrawa
 
 ## Generate an API Key
 
-Before signing any request, you must generate an API key via [Exchange’s official website](https://www.exchange.com/index) 【User Center】-【API】. After generating the key, there are three things you must bear in mind:
+Before signing any request, you must generate an API key via [Darico’s official website](https://www.darico.io) 【User Center】-【API】. After generating the key, there are three things you must bear in mind:
 
 * API Key
 * Secret Key
@@ -50,7 +50,7 @@ All REST requests must include the following headings:
 
 ## Signature
 
-Generate a string to be signed - [open-api Demo](https://github.com/exchange-doc/api/blob/master/demo/demo.java)
+Generate a string to be signed - [open-api Demo](https://mojtaba999.github.io/exchange-api-docs/#ws-api-demo-java)
 
 1. Sort the parameters in ascending order of their parameter names in lexicographic order
 2. Traversing the sorted dictionary, splicing all parameters together in "keyvalue" format (non-null parameters)
@@ -68,7 +68,7 @@ sign = md5(api_key1234567time12312312312137789654)
 
 ## <span id="a6">Request Process</span>
 
-The root URL for REST access：``` https://api.Exchange.com ```
+The root URL for REST access：``` https://api.darico.io ```
 
 ###  <span id="a7">Request</span>
 All requests are based on Https protocol, contentType in the request header must be uniformly set as: ‘application/x-www-form-urlencoded’.
@@ -414,7 +414,7 @@ Return value:
 |volume| 	Must fill|	Purchase quantity（Polysemy, multiplexing fields）<br>type=1:Represents the quantity of sales and purchases<br>type=2:Buy means the total price，Selling represents the total number<br>Trading restrictions user/me-User information|
 |price|	Selective filling|	Authorized unit price：type=2：No need for this parameter|
 |symbol|	Must fill|	Market mark，ethbtc|
-|fee_is_user_exchange_coin|	Selective filling|	（Redundant fields, ignored）0，When the exchange has the platform currency, this parameter indicates whether to use the platform currency to pay the handling fee, 0 no, 1 yes.|
+|fee_is_user_darico_coin|	Selective filling|	（Redundant fields, ignored）0，When the Darico has the platform currency, this parameter indicates whether to use the platform currency to pay the handling fee, 0 no, 1 yes.|
 |api_key|	Must fill|	api_key|
 |time|	Must fill|	time stamp|
 |sign|	Must fill|	autograph|
@@ -761,7 +761,7 @@ Return value:
 |sign|	Must fill|	autograph|
 |symbol|	Must fill|	currency ，example btcusdt|
 |mass_cancel|	Selective filling|	[1234,234....] Withdrawal parameters，Orderid|
-|mass_place|	Selective filling|	[{side:"BUY",type:"1",volume:"0.01",price:"6400",fee_is_user_exchange_coin:"0"}, {}, …]<br>Meaning：<br>symbol:currency，example btcusdt<br>mass_place:Order parameter。side：direction（Direction of businessBUY、SELL），<br>--------------------------------type：type（1:limit order、2:market order）<br>--------------------------------volume：Purchase quantity（Polysemy，Multiplex field） type=1:Represents the quantity of sales and purchasestype=2:Buy means the total price，Selling represents the total number<br>--------------------------------price：Authorized unit price：type=2：No need for this parameter<br>--------------------------------fee_is_user_exchange_coin：(Redundant fields) When the exchange has a platform currency，This parameter indicates whether to use platform currency to pay handling fee, 0 no, 1 yes.|
+|mass_place|	Selective filling|	[{side:"BUY",type:"1",volume:"0.01",price:"6400",fee_is_user_darico_coin:"0"}, {}, …]<br>Meaning：<br>symbol:currency，example btcusdt<br>mass_place:Order parameter。side：direction（Direction of businessBUY、SELL），<br>--------------------------------type：type（1:limit order、2:market order）<br>--------------------------------volume：Purchase quantity（Polysemy，Multiplex field） type=1:Represents the quantity of sales and purchasestype=2:Buy means the total price，Selling represents the total number<br>--------------------------------price：Authorized unit price：type=2：No need for this parameter<br>--------------------------------fee_is_user_darico_coin：(Redundant fields) When the darico has a platform currency，This parameter indicates whether to use platform currency to pay handling fee, 0 no, 1 yes.|
 
 Return value:
 
@@ -788,7 +788,7 @@ Return value:
 |sign|	Must fill|	autograph|
 |symbol|	Must fill|	currency ，example btcusdt|
 |mass_cancel|	Selective filling|	[1234,234....] Withdrawal parameters，Orderid|
-|mass_place|	Selective filling|	[{side:"BUY",type:"1",volume:"0.01",price:"6400",fee_is_user_exchange_coin:"0"}, {}, …]<br>Meaning：<br>symbol:currency，example btcusdt<br>mass_place:Order parameter。side：direction（Direction of businessBUY、SELL），<br>--------------------------------type：type（1:limit order、2:market order）<br>--------------------------------volume：Purchase quantity（Polysemy，Multiplex field） type=1:Represents the quantity of sales and purchasestype=2:Buy means the total price，Selling represents the total number<br>--------------------------------price：Authorized unit price：type=2：No need for this parameter<br>--------------------------------fee_is_user_exchange_coin：(Redundant fields) When the exchange has a platform currency，This parameter indicates whether to use platform currency to pay handling fee, 0 no, 1 yes.|
+|mass_place|	Selective filling|	[{side:"BUY",type:"1",volume:"0.01",price:"6400",fee_is_user_Darico_coin:"0"}, {}, …]<br>Meaning：<br>symbol:currency，example btcusdt<br>mass_place:Order parameter。side：direction（Direction of businessBUY、SELL），<br>--------------------------------type：type（1:limit order、2:market order）<br>--------------------------------volume：Purchase quantity（Polysemy，Multiplex field） type=1:Represents the quantity of sales and purchasestype=2:Buy means the total price，Selling represents the total number<br>--------------------------------price：Authorized unit price：type=2：No need for this parameter<br>--------------------------------fee_is_user_Darico_coin：(Redundant fields) When the Darico has a platform currency，This parameter indicates whether to use platform currency to pay handling fee, 0 no, 1 yes.|
 
 Return value:
 
@@ -1422,7 +1422,7 @@ public class WsTest {
     public static void main(String[] args) {
         try {
 //wsurl 
-            String url = "wss://ws.Exchange.com/kline-api/ws";
+            String url = "wss://ws.darico.io/kline-api/ws";
 //Historical data request parameters 
             String reqParam = "{"event":"req","params":{"channel":"market_btcusdt_trade_ticker","cb_id":"btcusdt","top":150}}";
 //Subscription parameters 
@@ -1434,7 +1434,7 @@ public class WsTest {
 //Subscribe to real-time data 
             wsc.send(subParam);
 
-//Thread does not end, waiting for new messages，www.Exchange.com Generally, a new deal will return in about a minute
+//Thread does not end, waiting for new messages，www.darico.io Generally, a new deal will return in about a minute
             while (true) {
                 Thread.sleep(1000);
             }
