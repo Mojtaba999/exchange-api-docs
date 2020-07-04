@@ -251,7 +251,7 @@ Return value:
 |usdt|	usdtcny|	-|	-|
 
 
-## <span id="3" 65%">Obtain all transaction records</span>
+## <span id="3">Obtain all transaction records</span>
 
 1. Interface address:/open/api/all_trade
 2. Interface Description: (get request) Get all transaction records
