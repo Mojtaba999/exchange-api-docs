@@ -473,7 +473,7 @@
 
 <p>sign = md5(api_key1234567time12312312312137789654)</p>
 <h2 id='request-process'><span id="a6">Request Process</span></h2>
-<p>The root URL for REST access：<code>https://api.Darico.com</code></p>
+<p>The root URL for REST access：<code>https://api.darico.io</code></p>
 <h3 id='request'><span id="a7">Request</span></h3>
 <p>All requests are based on Https protocol, contentType in the request header must be uniformly set as: ‘application/x-www-form-urlencoded’.</p>
 
@@ -1173,7 +1173,7 @@
 <td>Market mark，ethbtc</td>
 </tr>
 <tr>
-<td>fee_is_user_Darico_coin</td>
+<td>fee_is_user_darico_coin</td>
 <td>Selective filling</td>
 <td>（Redundant fields, ignored）0，When the Darico has the platform currency, this parameter indicates whether to use the platform currency to pay the handling fee, 0 no, 1 yes.</td>
 </tr>
@@ -1895,7 +1895,7 @@
 <tr>
 <td>mass_place</td>
 <td>Selective filling</td>
-<td>[{side:&quot;BUY&quot;,type:&quot;1&quot;,volume:&quot;0.01&quot;,price:&quot;6400&quot;,fee_is_user_Darico_coin:&quot;0&quot;}, {}, …]<br>Meaning：<br>symbol:currency，example btcusdt<br>mass_place:Order parameter。side：direction（Direction of businessBUY、SELL），<br>--------------------------------type：type（1:limit order、2:market order）<br>--------------------------------volume：Purchase quantity（Polysemy，Multiplex field） type=1:Represents the quantity of sales and purchasestype=2:Buy means the total price，Selling represents the total number<br>--------------------------------price：Authorized unit price：type=2：No need for this parameter<br>--------------------------------fee_is_user_Darico_coin：(Redundant fields) When the Darico has a platform currency，This parameter indicates whether to use platform currency to pay handling fee, 0 no, 1 yes.</td>
+<td>[{side:&quot;BUY&quot;,type:&quot;1&quot;,volume:&quot;0.01&quot;,price:&quot;6400&quot;,fee_is_user_darico_coin:&quot;0&quot;}, {}, …]<br>Meaning：<br>symbol:currency，example btcusdt<br>mass_place:Order parameter。side：direction（Direction of businessBUY、SELL），<br>--------------------------------type：type（1:limit order、2:market order）<br>--------------------------------volume：Purchase quantity（Polysemy，Multiplex field） type=1:Represents the quantity of sales and purchasestype=2:Buy means the total price，Selling represents the total number<br>--------------------------------price：Authorized unit price：type=2：No need for this parameter<br>--------------------------------fee_is_user_darico_coin：(Redundant fields) When the darico has a platform currency，This parameter indicates whether to use platform currency to pay handling fee, 0 no, 1 yes.</td>
 </tr>
 </tbody></table>
 
@@ -2783,7 +2783,7 @@
 <span class="p">//</span><span class="n">Subscribe</span> <span class="k">to</span> <span class="k">real</span><span class="p">-</span><span class="n">time</span> <span class="n">data</span> 
             <span class="n">wsc</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="n">subParam</span><span class="p">);</span>
 
-<span class="p">//</span><span class="n">Thread</span> <span class="n">does</span> <span class="k">not</span> <span class="k">end</span><span class="p">,</span> <span class="n">waiting</span> <span class="n">for</span> <span class="n">new</span> <span class="n">messages</span><span class="err">，</span><span class="n">www</span><span class="p">.</span><span class="n">Darico</span><span class="p">.</span><span class="n">com</span> <span class="n">Generally</span><span class="p">,</span> <span class="n">a</span> <span class="n">new</span> <span class="n">deal</span> <span class="n">will</span> <span class="n">return</span> <span class="k">in</span> <span class="n">about</span> <span class="n">a</span> <span class="n">minute</span>
+<span class="p">//</span><span class="n">Thread</span> <span class="n">does</span> <span class="k">not</span> <span class="k">end</span><span class="p">,</span> <span class="n">waiting</span> <span class="n">for</span> <span class="n">new</span> <span class="n">messages</span><span class="err">，</span><span class="n">www</span><span class="p">.</span><span class="n">darico</span><span class="p">.</span><span class="n">io</span> <span class="n">Generally</span><span class="p">,</span> <span class="n">a</span> <span class="n">new</span> <span class="n">deal</span> <span class="n">will</span> <span class="n">return</span> <span class="k">in</span> <span class="n">about</span> <span class="n">a</span> <span class="n">minute</span>
             <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
                 <span class="n">Thread</span><span class="p">.</span><span class="nf">sleep</span><span class="p">(</span><span class="m">1000</span><span class="p">);</span>
             <span class="p">}</span>
